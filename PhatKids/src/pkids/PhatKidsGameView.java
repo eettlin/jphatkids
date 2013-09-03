@@ -25,7 +25,7 @@ public class PhatKidsGameView extends GContainer {
 		setBackgroundSprite(gs);
 		
 		
-		TimerListener pkEnemyTimer = new TimerListener(120) {
+		TimerListener pkEnemyTimer = new TimerListener(45) {
 			
 			@Override
 			public void invoke(GObject target, Context context) {
@@ -42,8 +42,29 @@ public class PhatKidsGameView extends GContainer {
 
 	private void addRandomEnemy() {
 		
+		int enemyPick = (int)(Math.random()*3);
+		Enemy e = null;
 		// 
-		Enemy e1 = new EnemyOne();
-		add(e1);
+		switch(enemyPick){
+		case 0:
+			 e = new EnemyOne();
+			break;
+			
+		case 1:
+			 e = new EnemyTwo();
+			break;
+			
+		case 2:
+			 e = new EnemyThree();
+
+			break;
+			
+		 default:
+			 e = new EnemyTwo();
+			break;
+		}
+		
+		add(e);
+		
 	}
 }

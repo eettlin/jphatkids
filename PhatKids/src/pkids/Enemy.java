@@ -33,7 +33,7 @@ public abstract class Enemy extends GSprite { // can not instantiate an abstract
 		Polygon p = new Polygon(x, y, 84);
 		PolygonController pc = new PolygonController(p);
 		pc.goToStart(this);
-		pc.setRotateToFollow(true);
+		pc.setRotateToFollow(false);
 
 		double slowness = getSlowness();
 		pc.setMaxSpeed(slowness);
