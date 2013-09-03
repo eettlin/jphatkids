@@ -21,10 +21,8 @@ public class PhatKidsGameView extends GContainer {
 	    GSprite gs = new GSprite(bg);
 		setBackgroundSprite(gs);
 		
-		//BufferedImage enemyOne = ImageCache.forClass(PhatKids.class).get("enemy1.png");
-		
-		//Image e1Image = 
-		//Enemy e1 = new Enemy( Image(enemyOne) );
+		Enemy e1 = new EnemyOne();
+		addAtCenter(e1);
 		
 		/*
 		 * int[] x = new int[] { 898, 872, 846, 821, 796, 770, 744, 718, 692,
