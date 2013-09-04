@@ -34,7 +34,8 @@ public class PKPlayArea extends GContainer {
 
 	private void addRandomEnemy() {
 
-		int enemyPick = (int) (Math.random() * 3);
+		int enemyPick = (int) (Math.random() * 4);
+		
 		Enemy e = null;
 		//
 		switch (enemyPick) {
@@ -48,6 +49,11 @@ public class PKPlayArea extends GContainer {
 
 		case 2:
 			e = new EnemyThree();
+
+			break;
+			
+		case 3:
+			e = new EnemyFour();
 
 			break;
 

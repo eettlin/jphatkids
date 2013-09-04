@@ -8,7 +8,7 @@ public class ToolArea extends GContainer {
 	public ToolArea() {
 		// TODO Auto-generated constructor stub
 		setSize(100, 600);
-		this.setBackgroundColor(Color.BLACK);
+		this.setBackgroundColor(Color.gray);
 
 	}
 

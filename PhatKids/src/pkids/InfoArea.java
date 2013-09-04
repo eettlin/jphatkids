@@ -8,7 +8,7 @@ public class InfoArea extends GContainer {
 public InfoArea() {
 	// TODO Auto-generated constructor stub
 	setSize(400, 100);
-	this.setBackgroundColor(Color.BLACK);
+	this.setBackgroundColor(Color.gray);
 
 }
 }
