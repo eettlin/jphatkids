@@ -8,14 +8,15 @@ import jgame.GSprite;
 import jgame.ImageCache;
 
 public class Tile extends GContainer {
-	public Tile() {
+
+	public Tile(String iconName) {
 		// TODO Auto-generated constructor stub
-		setSize(90, 94);
-		this.setBackgroundColor(Color.WHITE);
-		
-		/*BufferedImage bg = ImageCache.forClass(PhatKids.class).get("tile.png");
+		setSize(92, 96);
+		this.setBackgroundColor(Color.gray);
+
+		BufferedImage bg = ImageCache.forClass(PhatKids.class).get(iconName);
 		GSprite bi = new GSprite(bg);
-		setBackgroundSprite(bi);*/
+		setBackgroundSprite(bi);
 	}
 
 }

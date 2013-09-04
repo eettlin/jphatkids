@@ -16,22 +16,28 @@ public class MenuArea extends GContainer {
 
 		BufferedImage bg = ImageCache.forClass(PhatKids.class)
 				.get("menubg.png");
+		
+		// set enemies
+		
+		
+		
+		
+		
 		GSprite bi = new GSprite(bg);
 		setBackgroundSprite(bi);
 
 		for (int i = 0; i < 5; i++) {
 			setTile(i);
-
 		}
 
 	}
 
 	private void setTile(int i) {
 		// TODO Auto-generated method stub
-
-		Tile tile = new Tile();
+		String[] menuIcons = {"miOne.png", "miTwo.png", "miThree.png", "miFour.png", "miFive.png"};
+		Tile tile = new Tile(menuIcons[i]);
 		tile.setAnchorTopLeft();
-		tile.setLocation(i * 95 + 5, 600);
+		tile.setLocation(i * 98 + 7, 5);
 		add(tile);
 
 		System.out.println(tile.getX() + "		" + tile.getY());
