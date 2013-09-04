@@ -11,6 +11,29 @@ import jgame.ImageCache;
 
 public class MenuArea extends GContainer {
 
+	class IndexedTurretRecipe implements TurretRecipe {
+	
+		private final int index;
+	
+		public IndexedTurretRecipe(int index) {
+			super();
+			this.index = index;
+		}
+	
+		@Override
+		public Turret createTurret() {
+			switch (index) {
+			case 0:
+				return new TurretOne();
+			case 1:
+				return new TurretTwo();
+			default:
+				return null;
+			}
+		}
+	
+	}
+
 	public MenuArea() {
 		// TODO Auto-generated constructor stub
 		setSize(500, 100);
@@ -38,12 +61,11 @@ public class MenuArea extends GContainer {
 		// TODO Auto-generated method stub
 		List<Image> images = ImageCache.forClass(PhatKids.class).getSequential("mi", 1, 5, ".png");
 //		String[] menuIcons = {"miOne.png", "miTwo.png", "miThree.png", "miFour.png", "miFive.png"};
-		Tile tile = new Tile(images.get(i), images.get(4-i));
+		Tile tile = new Tile(new IndexedTurretRecipe(i), images.get(i), images.get(4-i));
 		tile.setAnchorTopLeft();
 		tile.setLocation(i * 98 + 7, 5);
 		add(tile);
 
-		System.out.println(tile.getX() + "		" + tile.getY());
 
 	}
 
