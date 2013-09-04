@@ -1,29 +1,26 @@
 package pkids;
 
-import java.awt.image.BufferedImage;
-
-import jgame.Context;
 import jgame.GContainer;
-import jgame.GObject;
-import jgame.GSprite;
-import jgame.ImageCache;
-import jgame.listener.TimerListener;
 
 public class PhatKidsGameView extends GContainer {
 
 	public PhatKidsGameView() {
 		// Set the size.
 		setSize(900, 700);
-		
+
 		// Create play area and locate on stage
 		PKPlayArea pa = new PKPlayArea();
 		pa.setAnchorTopLeft();
 		pa.setLocation(100, 0);
 		add(pa);
 
-		
-	}
+		// Create Menu area and locate on stage
+		MenuArea ma = new MenuArea();
+		ma.setAnchorTopLeft();
+		ma.setLocation(0, 600);
+		add(ma);
 
+	}
 
 }
 

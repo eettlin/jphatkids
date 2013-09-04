@@ -19,7 +19,7 @@ public class PKPlayArea extends GContainer {
 		BufferedImage bg = ImageCache.forClass(PhatKids.class).get("bg2.png");
 		GSprite bi = new GSprite(bg);
 		setBackgroundSprite(bi);
-		
+
 		TimerListener pkEnemyTimer = new TimerListener(45) {
 
 			@Override
@@ -31,7 +31,7 @@ public class PKPlayArea extends GContainer {
 		addListener(pkEnemyTimer);
 
 	}
-	
+
 	private void addRandomEnemy() {
 
 		int enemyPick = (int) (Math.random() * 3);
