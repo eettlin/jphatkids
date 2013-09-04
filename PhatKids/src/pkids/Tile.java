@@ -11,11 +11,11 @@ public class Tile extends GContainer {
 	public Tile() {
 		// TODO Auto-generated constructor stub
 		setSize(90, 94);
-		this.setBackgroundColor(Color.BLACK);
+		this.setBackgroundColor(Color.WHITE);
 		
-		BufferedImage bg = ImageCache.forClass(PhatKids.class).get("tile.png");
+		/*BufferedImage bg = ImageCache.forClass(PhatKids.class).get("tile.png");
 		GSprite bi = new GSprite(bg);
-		setBackgroundSprite(bi);
+		setBackgroundSprite(bi);*/
 	}
 
 }
