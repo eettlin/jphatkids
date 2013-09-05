@@ -18,33 +18,24 @@ public class MenuArea extends GContainer {
 		this.setBackgroundColor(Color.RED);
 
 		BufferedImage bg = ImageCache.forClass(PhatKids.class)
-				.get("menubg.png");
+				.get("areas/menubg.png");
 		
 		// set enemies
 		GSprite bi = new GSprite(bg);
 		setBackgroundSprite(bi);
 
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 4; i++) {
 			setTile(i);
 		}
 
 	}
 
+	List<Image> tileImages = ImageCache.forClass(PhatKids.class).getSequential("tiles/d", 1, 4, ".png"); //  ***************
 	private void setTile(int i) {
-		
-		
-		List<Image> imagesNone = ImageCache.forClass(PhatKids.class).getSequential("mi", 1, 5, ".png"); //  ***************
-		List<Image> imagesHover = ImageCache.forClass(PhatKids.class).getSequential("mi", 1, 5, ".png"); //  ***************
-		List<Image> imagesPressed = ImageCache.forClass(PhatKids.class).getSequential("mi", 1, 5, ".png"); //  ***************
-		//set button
-		GButton tb = new GButton();
-		tb.setStateSprite(ButtonState.NONE, new GSprite(imagesNone.get(i)));
-		tb.setStateSprite(ButtonState.HOVERED, new GSprite(imagesHover.get(i)));
-		tb.setStateSprite(ButtonState.PRESSED, new GSprite(imagesPressed.get(i)));
 		
 		// TODO Auto-generated method stub
 //		String[] menuIcons = {"miOne.png", "miTwo.png", "miThree.png", "miFour.png", "miFive.png"};
-		Tile tile = new Tile(new IndexedTurretRecipe(i), tb);           //  ***************
+		Tile tile = new Tile(new IndexedTurretRecipe(i), tileImages.get(i));           //  ***************
 		tile.setAnchorTopLeft();
 		tile.setLocation(i * 98 + 7, 5);
 		add(tile);

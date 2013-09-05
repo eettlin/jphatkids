@@ -9,7 +9,7 @@ public class EnemyTwo extends Enemy {
 	public EnemyTwo() {
 		
 		//ImageCache.forClass(PhatKids.class   This code gets the cache for a particular class; the cache is an instance of ImageCache
-		super(ImageCache.forClass(PhatKids.class).get("enemy2.png"));
+		super(ImageCache.forClass(PhatKids.class).get("enemies/enemy2.png"));
 		// TODO Auto-generated constructor stub
 	}
 
