@@ -1,7 +1,5 @@
 package pkids;
 
-import java.awt.Image;
-
 import jgame.ImageCache;
 
 public class TurretTwo extends Turret {

@@ -17,6 +17,13 @@ class IndexedTurretRecipe implements TurretRecipe {
 			return new TurretOne();
 		case 1:
 			return new TurretTwo();
+		case 2:
+			return new TurretThree();
+		case 3:
+			return new TurretFour();
+		case 4:
+			return new TurretFive();
+
 		default:
 			return null;
 		}

@@ -24,13 +24,13 @@ public class MenuArea extends GContainer {
 		GSprite bi = new GSprite(bg);
 		setBackgroundSprite(bi);
 
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 5; i++) {
 			setTile(i);
 		}
 
 	}
 
-	List<Image> tileImages = ImageCache.forClass(PhatKids.class).getSequential("tiles/d", 1, 4, ".png"); //  ***************
+	List<Image> tileImages = ImageCache.forClass(PhatKids.class).getSequential("tiles/d", 1, 5, ".png"); //  ***************
 	private void setTile(int i) {
 		
 		// TODO Auto-generated method stub

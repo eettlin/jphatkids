@@ -39,7 +39,8 @@ public class Tile extends GContainer {
 
 		GSprite sIcon = new GSprite(image);
 		tile.setSize(95, 90);
-		tile.addAt(sIcon, 95 / 2, 45);
+//		tile.addAt(sIcon, 95 / 2, 45);
+		tile.addAtCenter(sIcon);
 
 		// setBackgroundSprite(bi);
 

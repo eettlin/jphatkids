@@ -16,7 +16,7 @@ public class EnemyOne extends Enemy {
 	@Override
 	public double getSlowness() {
 		// TODO Auto-generated method stub
-		return 9;
+		return 4.5;
 	}
 
 }

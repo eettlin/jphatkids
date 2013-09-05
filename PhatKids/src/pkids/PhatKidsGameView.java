@@ -1,6 +1,7 @@
 package pkids;
 
 import jgame.GContainer;
+import jgame.controller.MouseLocationController;
 
 public class PhatKidsGameView extends GContainer {
 
@@ -37,6 +38,8 @@ public class PhatKidsGameView extends GContainer {
 
 	public void initializeTurret(Turret t) {
 		this.pa.addAtCenter(t);
+		final MouseLocationController c = new MouseLocationController();
+		t.addController(c);
 	}
 
 }
