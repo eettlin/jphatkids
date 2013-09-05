@@ -49,12 +49,10 @@ public class PKPlayArea extends GContainer {
 
 		case 2:
 			e = new EnemyThree();
-
 			break;
 			
 		case 3:
 			e = new EnemyFour();
-
 			break;
 
 		default:
