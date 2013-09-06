@@ -1,11 +1,17 @@
 package pkids;
 
+import java.util.List;
+
+import jgame.Context;
 import jgame.GContainer;
+import jgame.GObject;
 import jgame.controller.MouseLocationController;
+import jgame.listener.LocalClickListener;
 
 public class PhatKidsGameView extends GContainer {
 
 	private PKPlayArea pa = new PKPlayArea();
+	private boolean settingTurret = false;
 
 	public PhatKidsGameView() {
 		// Set the size.
@@ -37,9 +43,41 @@ public class PhatKidsGameView extends GContainer {
 	}
 
 	public void initializeTurret(Turret t) {
+		if (settingTurret) {
+			return;
+		}
+
 		this.pa.addAtCenter(t);
 		final MouseLocationController c = new MouseLocationController();
 		t.addController(c);
+
+		final LocalClickListener dropListener = new LocalClickListener() {
+			@Override
+			public void invoke(GObject target, Context context) {
+				// TODO Auto-generated method stub
+				target.removeController(c);
+				target.removeListener(this);
+				settingTurret = false;
+
+				List<Enemy> enemies = context.getInstancesOfClass(Enemy.class);
+				double minimumDistance = Integer.MAX_VALUE;
+				Enemy closest = null;
+				for (Enemy e : enemies) {
+					double d = e.distanceTo(target);
+					if (d < minimumDistance) {
+						minimumDistance = d;
+						closest = e;
+					}
+				}
+
+				if (closest != null) {
+					target.face(closest);
+					target.setRotation(target.getRotation() + 90);
+				}
+			}
+		};
+		t.addListener(dropListener);
+		settingTurret = true;
 	}
 
 }

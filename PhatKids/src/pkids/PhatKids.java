@@ -21,6 +21,7 @@ public class PhatKids extends Game {
 		setRootContainer(root);
 		PhatKidsGameView pkgv = new PhatKidsGameView();
 		root.addView(Views.GAME, pkgv);
+//		setTargetFPS(24);
 	}	
 
 	/**	These are all of the views for this game
