@@ -42,42 +42,28 @@ public class PhatKidsGameView extends GContainer {
 
 	}
 
-	public void initializeTurret(Turret t) {
+	public void initializeTurret(final Turret t) {
 		if (settingTurret) {
 			return;
 		}
 
 		this.pa.addAtCenter(t);
-		final MouseLocationController c = new MouseLocationController();
-		t.addController(c);
+		final MouseLocationController c = new MouseLocationController();  	// create mouse location controller
+		t.addController(c);													// attach controller to turret t
 
-		final LocalClickListener dropListener = new LocalClickListener() {
+			
+		final LocalClickListener dropListener = new LocalClickListener() {  // mouse click listener hears click on  turret (see below)
 			@Override
 			public void invoke(GObject target, Context context) {
-				// TODO Auto-generated method stub
-				target.removeController(c);
+				target.removeController(c);  
 				target.removeListener(this);
 				settingTurret = false;
-
-				List<Enemy> enemies = context.getInstancesOfClass(Enemy.class);
-				double minimumDistance = Integer.MAX_VALUE;
-				Enemy closest = null;
-				for (Enemy e : enemies) {
-					double d = e.distanceTo(target);
-					if (d < minimumDistance) {
-						minimumDistance = d;
-						closest = e;
-					}
-				}
-
-				if (closest != null) {
-					target.face(closest);
-					target.setRotation(target.getRotation() + 90);
-				}
+				//((Turret) target).setPlaced(true); 
+				t.setPlaced(true); //because t is set to final otherwise above
 			}
 		};
 		t.addListener(dropListener);
-		settingTurret = true;
+		settingTurret = true;  // This is only run when init turret 
 	}
 
 }
