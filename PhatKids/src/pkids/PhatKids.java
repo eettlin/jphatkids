@@ -17,6 +17,7 @@ public class PhatKids extends Game {
 	}	
 
 	public PhatKids(){
+		
 		GRootContainer root = new GRootContainer(Color.BLUE );
 		setRootContainer(root);
 		PhatKidsGameView pkgv = new PhatKidsGameView();
