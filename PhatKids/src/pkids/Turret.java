@@ -6,19 +6,13 @@ import java.util.List;
 import jgame.Context;
 import jgame.GObject;
 import jgame.GSprite;
+import jgame.controller.ConstantMovementController;
 import jgame.listener.FrameListener;
 
 public abstract class Turret extends GSprite {
 
-	public boolean isPlaced() {
-		return placed;
-	}
-
-	public void setPlaced(boolean placed) {
-		this.placed = placed;
-	}
-
 	private boolean placed = false;
+	private int fireTimer = 0;
 
 	public Turret(Image image) {
 		super(image);
@@ -49,28 +43,47 @@ public abstract class Turret extends GSprite {
 
 				if (closest != null) {
 					target.face(closest);
-					target.setRotation(target.getRotation() + 90);
+					target.setRotation(target.getRotation());
 				}
-				
-				// fire bullet  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+				// If placed fire bullet
+				// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+				fireTimer--;
+				if (fireTimer < 0) {
 					fireBullet();
-				
+					fireTimer = getFireDelay();
+				}
+
 			}
 
 		}); // End of the invoke method from the frame listener
-		
-		
 
 	}
 	
-	public void fireBullet(){
+	public abstract int getFireDelay();
+	
+	public abstract double getBulletSpeed();
+	
+
+	public void fireBullet() {
 		// create an instance of BulletOne
 		Bullet b = new BulletOne();
-		//set direction of bullet one
-		
-		//
-		
-		
+		// set direction of bullet one
+		b.setRotation(this.getRotation());
+		//move the bullets at a particular speed
+		ConstantMovementController c =  ConstantMovementController.createPolar(this.getBulletSpeed(), this.getRotation());
+		b.addController(c);
+		snapAnchor(b);
+		b.moveAtAngle(getWidth() / 2+20, getRotation());
+		this.addSibling(b);
+	}
+
+	public boolean isPlaced() {
+		return placed;
+	}
+
+	public void setPlaced(boolean placed) {
+		this.placed = placed;
 	}
 
 }

@@ -13,4 +13,16 @@ public class TurretOne extends Turret {
 	
 	}
 
+	@Override
+	public int getFireDelay() {
+		// TODO Auto-generated method stub
+		return 30;
+	}
+
+	@Override
+	public double getBulletSpeed() {
+		// TODO Auto-generated method stub
+		return 2;
+	}
+
 }
