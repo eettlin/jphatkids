@@ -5,8 +5,6 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.util.List;
 
-import jgame.ButtonState;
-import jgame.GButton;
 import jgame.GContainer;
 import jgame.GSprite;
 import jgame.ImageCache;

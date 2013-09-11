@@ -29,13 +29,16 @@ public abstract class Turret extends GSprite {
 			@Override
 			public void invoke(GObject target, Context context) {
 
+				// if not placed exit the invoke function
 				if (!placed) {
 					return;
 				}
 
+				// set rotaation of turret to point toward nearest enemy
 				List<Enemy> enemies = context.getInstancesOfClass(Enemy.class);
 				double minimumDistance = Integer.MAX_VALUE;
 				Enemy closest = null;
+
 				for (Enemy e : enemies) {
 					double d = e.distanceTo(target);
 					if (d < minimumDistance) {
@@ -48,9 +51,26 @@ public abstract class Turret extends GSprite {
 					target.face(closest);
 					target.setRotation(target.getRotation() + 90);
 				}
+				
+				// fire bullet  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+					fireBullet();
+				
 			}
-		});
 
+		}); // End of the invoke method from the frame listener
+		
+		
+
+	}
+	
+	public void fireBullet(){
+		// create an instance of BulletOne
+		Bullet b = new BulletOne();
+		//set direction of bullet one
+		
+		//
+		
+		
 	}
 
 }

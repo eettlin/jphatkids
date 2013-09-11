@@ -1,7 +1,5 @@
 package pkids;
 
-import java.util.List;
-
 import jgame.Context;
 import jgame.GContainer;
 import jgame.GObject;
