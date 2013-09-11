@@ -1,5 +1,7 @@
 package pkids;
 
+import java.awt.Image;
+
 import jgame.Context;
 import jgame.GObject;
 import jgame.ImageCache;
@@ -15,14 +17,29 @@ public class TurretOne extends Turret {
 
 	@Override
 	public int getFireDelay() {
-		// TODO Auto-generated method stub
 		return 30;
 	}
 
 	@Override
 	public double getBulletSpeed() {
-		// TODO Auto-generated method stub
 		return 2;
+	}
+
+	@Override
+	public Bullet createBullet() {
+		return null;
+	}
+
+	@Override
+	public Image getBulletImage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public double getBulletDamage() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

@@ -20,4 +20,10 @@ public class TurretThree extends Turret {
 		return 0;
 	}
 
+	@Override
+	public Bullet createBullet() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

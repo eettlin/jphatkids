@@ -1,5 +1,7 @@
 package pkids;
 
+import java.awt.Image;
+
 import jgame.ImageCache;
 
 public class TurretFive extends Turret {
@@ -16,6 +18,24 @@ public class TurretFive extends Turret {
 
 	@Override
 	public double getBulletSpeed() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Bullet createBullet() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Image getBulletImage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public double getBulletDamage() {
 		// TODO Auto-generated method stub
 		return 0;
 	}

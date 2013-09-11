@@ -64,10 +64,16 @@ public abstract class Turret extends GSprite {
 	
 	public abstract double getBulletSpeed();
 	
+	public abstract Bullet createBullet();
+	
+	public abstract Image getBulletImage();
+	
+	public abstract double getBulletDamage();
+	
 
 	public void fireBullet() {
 		// create an instance of BulletOne
-		Bullet b = new BulletOne();
+		Bullet b = new Bullet(getBulletImage(), getBulletDamage());
 		// set direction of bullet one
 		b.setRotation(this.getRotation());
 		//move the bullets at a particular speed
