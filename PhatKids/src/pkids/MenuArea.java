@@ -28,7 +28,7 @@ public class MenuArea extends GContainer {
 
 	}
 
-	List<Image> tileImages = ImageCache.forClass(PhatKids.class).getSequential("tiles/d", 1, 5, ".png"); //  ***************
+	List<Image> tileImages = ImageCache.forClass(PhatKids.class).getSequential("tiles/t", 1, 5, ".png"); //  ***************
 	private void setTile(int i) {
 		
 		// TODO Auto-generated method stub
@@ -36,7 +36,9 @@ public class MenuArea extends GContainer {
 		Tile tile = new Tile(new IndexedTurretRecipe(i), tileImages.get(i));           //  ***************
 		tile.setAnchorTopLeft();
 		tile.setLocation(i * 98 + 7, 5);
-		add(tile);
+		tile.setScale(1.05);
+		addAtCenter(tile);
+		tile.setX(i*98);
 
 
 	}

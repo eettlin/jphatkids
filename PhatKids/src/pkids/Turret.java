@@ -59,28 +59,24 @@ public abstract class Turret extends GSprite {
 		}); // End of the invoke method from the frame listener
 
 	}
-	
+
 	public abstract int getFireDelay();
-	
+
 	public abstract double getBulletSpeed();
-	
+
 	public abstract Bullet createBullet();
-	
-	public abstract Image getBulletImage();
-	
-	public abstract double getBulletDamage();
-	
 
 	public void fireBullet() {
 		// create an instance of BulletOne
-		Bullet b = new Bullet(getBulletImage(), getBulletDamage());
+		Bullet b = createBullet(); //new Bullet(getBulletImage(), getBulletDamage());
 		// set direction of bullet one
 		b.setRotation(this.getRotation());
-		//move the bullets at a particular speed
-		ConstantMovementController c =  ConstantMovementController.createPolar(this.getBulletSpeed(), this.getRotation());
+		// move the bullets at a particular speed
+		ConstantMovementController c = ConstantMovementController.createPolar(
+				this.getBulletSpeed(), this.getRotation());
 		b.addController(c);
 		snapAnchor(b);
-		b.moveAtAngle(getWidth() / 2+20, getRotation());
+		b.moveAtAngle(getWidth() / 2 + 20, getRotation());
 		this.addSibling(b);
 	}
 

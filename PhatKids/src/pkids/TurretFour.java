@@ -1,43 +1,29 @@
 package pkids;
 
-import java.awt.Image;
-
 import jgame.ImageCache;
 
 public class TurretFour extends Turret {
 
 	public TurretFour() {
-		super(ImageCache.forClass(PhatKids.class).get("turrets/dt4.png"));
+		super(ImageCache.forClass(PhatKids.class).get("turrets/tt4.png"));
 	}
 
 	@Override
 	public int getFireDelay() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 12;
 	}
 
 	@Override
 	public double getBulletSpeed() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 5;
 	}
 
 	@Override
 	public Bullet createBullet() {
 		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Image getBulletImage() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public double getBulletDamage() {
-		// TODO Auto-generated method stub
-		return 0;
+		return new BulletFour();
 	}
 
 }
