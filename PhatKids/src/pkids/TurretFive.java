@@ -10,12 +10,12 @@ public class TurretFive extends Turret {
 
 	@Override
 	public int getFireDelay() {
-		return 19;
+		return 130;
 	}
 
 	@Override
 	public double getBulletSpeed() {
-		return 3;
+		return 7;
 	}
 
 	@Override

@@ -11,7 +11,7 @@ public class TurretTwo extends Turret {
 	@Override
 	public int getFireDelay() {
 		// TODO Auto-generated method stub
-		return 30;
+		return 90;
 	}
 
 	@Override

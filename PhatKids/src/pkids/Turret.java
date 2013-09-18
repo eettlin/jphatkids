@@ -74,6 +74,7 @@ public abstract class Turret extends GSprite {
 		// move the bullets at a particular speed
 		ConstantMovementController c = ConstantMovementController.createPolar(
 				this.getBulletSpeed(), this.getRotation());
+		c.setDamping(1.2);
 		b.addController(c);
 		snapAnchor(b);
 		b.moveAtAngle(getWidth() / 2 + 20, getRotation());
