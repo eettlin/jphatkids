@@ -8,21 +8,24 @@ import jgame.ImageCache;
 
 public class PhatKids extends Game {
 
-
+	// Game class has all the mthods that link JGame to awt.
 	public static void main(String[] args) {
 		ImageCache.create(PhatKids.class, "/pkids/rsc/");
 		//Create an instance and assign to a variable
 		PhatKids pk1 = new PhatKids();
-		//Start the PhatKids game
+		//Starts the PhatKids game
 		pk1.startGame();
 	}	
 
 	public PhatKids(){
-		
+		//GRootContainer is not a game object (Deck of cards)
 		GRootContainer root = new GRootContainer(Color.BLUE );
 		setRootContainer(root);
+		
+		// add these two lines for each view
 		PhatKidsGameView pkgv = new PhatKidsGameView();
 		root.addView(Views.GAME, pkgv);
+
 //		setTargetFPS(24);
 	}	
 

@@ -1,6 +1,7 @@
 package pkids;
 
 import java.awt.Image;
+import java.awt.Point;
 import java.util.List;
 
 import jgame.Context;
@@ -8,11 +9,11 @@ import jgame.GObject;
 import jgame.GSprite;
 import jgame.listener.BoundaryRemovalListener;
 import jgame.listener.HitTestListener;
-import jgame.listener.Listener;
 
 public class Bullet extends GSprite {
 
-	double bd;
+	private double bd;
+	private Point initialPosition = new Point();
 
 	public Bullet(Image image, double bulletDamage) {
 		super(image);
@@ -26,12 +27,7 @@ public class Bullet extends GSprite {
 				// interface
 				// import java.util.list (not java.awt)
 				List<Enemy> enemies = context.hitTestClass(Enemy.class);
-				/*
-				 * for(int i = 0; i < enemies.size();i++) {
-				 * 
-				 * }
-				 */
-
+				
 				for (Enemy enemy : enemies) {
 					enemy.removeSelf();
 				}
@@ -41,5 +37,22 @@ public class Bullet extends GSprite {
 		};
 		addListener(htl);
 	}
+
+	public double getBd() {
+		return bd;
+	}
+
+	public void setBd(double bd) {
+		this.bd = bd;
+	}
+
+	public Point getInitialPosition() {
+		return initialPosition;
+	}
+
+	public void setInitialPosition(Point initialPosition) {
+		this.initialPosition = initialPosition;
+	}
+
 
 }

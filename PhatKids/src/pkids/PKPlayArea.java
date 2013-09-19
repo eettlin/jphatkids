@@ -17,10 +17,11 @@ public class PKPlayArea extends GContainer {
 		this.setBackgroundColor(Color.BLACK);
 
 		BufferedImage bg = ImageCache.forClass(PhatKids.class).get("areas/bg5.png");
-		GSprite bi = new GSprite(bg);
-		setBackgroundSprite(bi);
+		GSprite gs = new GSprite(bg);
+		setBackgroundSprite(gs);
 
-		TimerListener pkEnemyTimer = new TimerListener(45) {
+		
+		TimerListener pkEnemyTimer = new TimerListener(150) {
 
 			@Override
 			public void invoke(GObject target, Context context) {
@@ -60,7 +61,7 @@ public class PKPlayArea extends GContainer {
 			break;
 		}
 
-		add(e);
+		this.add(e);
 
 	}
 }

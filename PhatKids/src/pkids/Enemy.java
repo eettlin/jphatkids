@@ -42,11 +42,11 @@ public abstract class Enemy extends GSprite { // can not instantiate an abstract
 		pc.setMaxSpeed(slowness * 3);
 
 		addController(pc);
-
+	
 		BoundaryRemovalListener brl = new BoundaryRemovalListener();
 		addListener(brl);
 	}
-
+    
 	@Override
 	public void preparePaint(Graphics2D g) {
 		super.preparePaint(g);

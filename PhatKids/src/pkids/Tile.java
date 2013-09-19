@@ -27,25 +27,26 @@ public class Tile extends GContainer {
 		Image iHover = cache.get("tiles/tile_hover.png");
 		Image iPressed = cache.get("tiles/tile_pressed.png");
 
-		GButton tile = new GButton();
+		GButton buttonIcon = new GButton();
 
 		GSprite sNone = new GSprite(iNone);
 		GSprite sHover = new GSprite(iHover);
 		GSprite sPressed = new GSprite(iPressed);
 
-		tile.setStateSprite(ButtonState.NONE, sNone);
-		tile.setStateSprite(ButtonState.HOVERED, sHover);
-		tile.setStateSprite(ButtonState.PRESSED, sPressed);
+		buttonIcon.setStateSprite(ButtonState.NONE, sNone);
+		buttonIcon.setStateSprite(ButtonState.HOVERED, sHover);
+		buttonIcon.setStateSprite(ButtonState.PRESSED, sPressed);
 
 		GSprite sIcon = new GSprite(image);
-		tile.setSize(95, 90);
+		buttonIcon.setSize(95, 90);
 //		tile.addAt(sIcon, 95 / 2, 45);
-		tile.addAtCenter(sIcon);
+		sIcon.setScale(0.8);
+		buttonIcon.addAtCenter(sIcon);
 
 		// setBackgroundSprite(bi);
 
-		// GButton button = new GButton();
-		tile.addListener(new ButtonListener() {
+		//GButton button = new GButton();
+		buttonIcon.addListener(new ButtonListener() {
 
 			@Override
 			public void mouseClicked(Context context) {
@@ -62,8 +63,8 @@ public class Tile extends GContainer {
 
 		});
 
-		add(tile);
-		tile.setAnchorTopLeft();
+		add(buttonIcon);
+		buttonIcon.setAnchorTopLeft();
 
 	}
 

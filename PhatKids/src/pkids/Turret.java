@@ -30,7 +30,7 @@ public abstract class Turret extends GSprite {
 
 				// set rotaation of turret to point toward nearest enemy
 				List<Enemy> enemies = context.getInstancesOfClass(Enemy.class);
-				double minimumDistance = Integer.MAX_VALUE;
+				double minimumDistance = 200 ;
 				Enemy closest = null;
 
 				for (Enemy e : enemies) {
@@ -44,15 +44,18 @@ public abstract class Turret extends GSprite {
 				if (closest != null) {
 					target.face(closest);
 					target.setRotation(target.getRotation());
+					
+					// If placed fire bullet and range OK
+					// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+					fireTimer--;
+					
+					if (fireTimer < 0) {
+						fireBullet();
+						fireTimer = getFireDelay();
+					}
 				}
 
-				// If placed fire bullet
-				// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-				fireTimer--;
-				if (fireTimer < 0) {
-					fireBullet();
-					fireTimer = getFireDelay();
-				}
+				
 
 			}
 
