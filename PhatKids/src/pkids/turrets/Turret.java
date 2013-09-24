@@ -3,11 +3,13 @@ package pkids.turrets;
 import java.awt.Image;
 import java.util.List;
 
+import pkids.PhatKids;
 import pkids.bullets.Bullet;
 import pkids.enemies.Enemy;
 import jgame.Context;
 import jgame.GObject;
 import jgame.GSprite;
+import jgame.SoundManager;
 import jgame.controller.ConstantMovementController;
 import jgame.listener.FrameListener;
 
@@ -18,8 +20,6 @@ public abstract class Turret extends GSprite {
 
 	public Turret(Image image) {
 		super(image);
-		// TODO Auto-generated constructor stub
-
 		this.addListener(new FrameListener() {
 
 			@Override
@@ -31,8 +31,9 @@ public abstract class Turret extends GSprite {
 				}
 
 				// set rotaation of turret to point toward nearest enemy
+				//this is pointing to a list that jgame has created wo alloct
 				List<Enemy> enemies = context.getInstancesOfClass(Enemy.class);
-				double minimumDistance = 200 ;
+				double minimumDistance = 3000 ;
 				Enemy closest = null;
 
 				for (Enemy e : enemies) {
@@ -43,16 +44,17 @@ public abstract class Turret extends GSprite {
 					}
 				}
 
+				fireTimer--;
 				if (closest != null) {
 					target.face(closest);
 					target.setRotation(target.getRotation());
 					
 					// If placed fire bullet and range OK
 					// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-					fireTimer--;
 					
-					if (fireTimer < 0) {
+					if (fireTimer < 0 && (closest.distanceTo(target) < 400)) {
 						fireBullet();
+						SoundManager.forClass(PhatKids.class).play("pop2.wav");
 						fireTimer = getFireDelay();
 					}
 				}
@@ -79,7 +81,7 @@ public abstract class Turret extends GSprite {
 		// move the bullets at a particular speed
 		ConstantMovementController c = ConstantMovementController.createPolar(
 				this.getBulletSpeed(), this.getRotation());
-		c.setDamping(1.2);
+		c.setDamping(1.1);
 		b.addController(c);
 		snapAnchor(b);
 		b.moveAtAngle(getWidth() / 2 + 20, getRotation());

@@ -5,12 +5,14 @@ import java.awt.Color;
 import jgame.GRootContainer;
 import jgame.Game;
 import jgame.ImageCache;
+import jgame.SoundManager;
 
 public class PhatKids extends Game {
 
 	// Game class has all the mthods that link JGame to awt.
 	public static void main(String[] args) {
 		ImageCache.create(PhatKids.class, "/pkids/rsc/");
+		SoundManager.create(PhatKids.class, "/pkids/rsc/sounds/");
 		//Create an instance and assign to a variable
 		PhatKids pk1 = new PhatKids();
 		//Starts the PhatKids game

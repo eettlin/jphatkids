@@ -4,10 +4,12 @@ import java.awt.Image;
 import java.awt.Point;
 import java.util.List;
 
+import pkids.PhatKids;
 import pkids.enemies.Enemy;
 import jgame.Context;
 import jgame.GObject;
 import jgame.GSprite;
+import jgame.SoundManager;
 import jgame.listener.BoundaryRemovalListener;
 import jgame.listener.HitTestListener;
 
@@ -28,7 +30,7 @@ public class Bullet extends GSprite {
 				// interface
 				// import java.util.list (not java.awt)
 				List<Enemy> enemies = context.hitTestClass(Enemy.class);
-				
+				SoundManager.forClass(PhatKids.class).play("bink.wav");
 				for (Enemy enemy : enemies) {
 					enemy.removeSelf();
 				}

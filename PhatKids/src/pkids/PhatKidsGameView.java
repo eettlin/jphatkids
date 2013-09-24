@@ -9,6 +9,7 @@ import pkids.turrets.Turret;
 import jgame.Context;
 import jgame.GContainer;
 import jgame.GObject;
+import jgame.SoundManager;
 import jgame.controller.MouseLocationController;
 import jgame.listener.LocalClickListener;
 
@@ -18,6 +19,9 @@ public class PhatKidsGameView extends GContainer {
 	private boolean settingTurret = false;
 
 	public PhatKidsGameView() {
+		SoundManager.forClass(PhatKids.class).loopForever("crave.ogg");
+		
+		
 		// Set the size.
 		setSize(900, 700);
 

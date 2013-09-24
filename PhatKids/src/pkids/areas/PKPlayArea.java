@@ -27,7 +27,7 @@ public class PKPlayArea extends GContainer {
 		setBackgroundSprite(gs);
 
 		
-		TimerListener pkEnemyTimer = new TimerListener(150) {
+		TimerListener pkEnemyTimer = new TimerListener(200) {
 
 			@Override
 			public void invoke(GObject target, Context context) {
