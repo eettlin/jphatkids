@@ -1,5 +1,11 @@
 package pkids;
 
+import pkids.areas.InfoArea;
+import pkids.areas.MenuArea;
+import pkids.areas.PKPlayArea;
+import pkids.areas.ToolArea;
+import pkids.turrets.RangeRing;
+import pkids.turrets.Turret;
 import jgame.Context;
 import jgame.GContainer;
 import jgame.GObject;

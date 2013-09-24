@@ -1,5 +1,6 @@
-package pkids;
+package pkids.bullets;
 
+import pkids.PhatKids;
 import jgame.ImageCache;
 import jgame.controller.ConstantRotationController;
 

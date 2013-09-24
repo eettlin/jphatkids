@@ -1,5 +1,8 @@
-package pkids;
+package pkids.turrets;
 
+import pkids.PhatKids;
+import pkids.bullets.Bullet;
+import pkids.bullets.BulletThree;
 import jgame.ImageCache;
 
 public class TurretThree extends Turret {

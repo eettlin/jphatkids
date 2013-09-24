@@ -1,4 +1,6 @@
-package pkids;
+package pkids.areas;
+
+import pkids.turrets.Turret;
 
 public interface TurretRecipe {
 

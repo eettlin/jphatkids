@@ -1,5 +1,6 @@
-package pkids;
+package pkids.enemies;
 
+import pkids.PhatKids;
 import jgame.ImageCache;
 
 public class EnemyTwo extends Enemy {

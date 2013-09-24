@@ -1,4 +1,4 @@
-package pkids;
+package pkids.enemies;
 
 import java.awt.Graphics2D;
 import java.awt.Image;

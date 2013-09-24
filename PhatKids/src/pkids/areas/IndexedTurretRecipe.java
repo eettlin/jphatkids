@@ -1,4 +1,11 @@
-package pkids;
+package pkids.areas;
+
+import pkids.turrets.Turret;
+import pkids.turrets.TurretFive;
+import pkids.turrets.TurretFour;
+import pkids.turrets.TurretOne;
+import pkids.turrets.TurretThree;
+import pkids.turrets.TurretTwo;
 
 //**********************************************************
 class IndexedTurretRecipe implements TurretRecipe {

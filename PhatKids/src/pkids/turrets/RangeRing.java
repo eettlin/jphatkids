@@ -1,4 +1,4 @@
-package pkids;
+package pkids.turrets;
 
 import java.awt.Color;
 import java.awt.Graphics2D;

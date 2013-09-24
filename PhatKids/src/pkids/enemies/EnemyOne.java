@@ -1,20 +1,21 @@
-package pkids;
+package pkids.enemies;
 
+import pkids.PhatKids;
 import jgame.ImageCache;
 
-public class EnemyThree extends Enemy {
+public class EnemyOne extends Enemy {
 
-	public EnemyThree() {
+	public EnemyOne() {
 		
 		//ImageCache.forClass(PhatKids.class   This code gets the cache for a particular class; the cache is an instance of ImageCache
-		super(ImageCache.forClass(PhatKids.class).get("enemies/enemy3.png"));
+		super(ImageCache.forClass(PhatKids.class).get("enemies/enemy1.png"));
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public double getSlowness() {
 		// TODO Auto-generated method stub
-		return 11.1234567;
+		return 4.5;
 	}
 
 }

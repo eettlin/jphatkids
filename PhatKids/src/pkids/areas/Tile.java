@@ -1,8 +1,11 @@
-package pkids;
+package pkids.areas;
 
 import java.awt.Color;
 import java.awt.Image;
 
+import pkids.PhatKids;
+import pkids.PhatKidsGameView;
+import pkids.turrets.Turret;
 import jgame.ButtonState;
 import jgame.Context;
 import jgame.GButton;

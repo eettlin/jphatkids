@@ -1,9 +1,10 @@
-package pkids;
+package pkids.bullets;
 
 import java.awt.Image;
 import java.awt.Point;
 import java.util.List;
 
+import pkids.enemies.Enemy;
 import jgame.Context;
 import jgame.GObject;
 import jgame.GSprite;

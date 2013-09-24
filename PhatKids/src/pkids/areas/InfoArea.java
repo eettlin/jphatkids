@@ -1,4 +1,4 @@
-package pkids;
+package pkids.areas;
 
 import java.awt.Color;
 

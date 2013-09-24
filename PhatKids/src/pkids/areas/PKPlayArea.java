@@ -1,8 +1,14 @@
-package pkids;
+package pkids.areas;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
+import pkids.PhatKids;
+import pkids.enemies.Enemy;
+import pkids.enemies.EnemyFour;
+import pkids.enemies.EnemyOne;
+import pkids.enemies.EnemyThree;
+import pkids.enemies.EnemyTwo;
 import jgame.Context;
 import jgame.GContainer;
 import jgame.GObject;
