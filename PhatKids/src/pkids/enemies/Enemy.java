@@ -8,12 +8,23 @@ import jgame.GObject;
 import jgame.GSprite;
 import jgame.controller.PolygonController;
 import jgame.listener.BoundaryRemovalListener;
+import pkids.HealthBar;
 
 public abstract class Enemy extends GSprite { // can not instantiate an abstract
 												// class
-
-	public Enemy(Image image) {
+	private double maxHealth;
+	private double currentHealth;
+	private HealthBar hb = new HealthBar();
+	
+	public Enemy(Image image, double maxHlth) {
 		super(image);
+		maxHealth = maxHlth;
+		currentHealth =maxHealth;
+		
+		addAtCenter(hb);
+		hb.setY(this.getHeight()-hb.getHeight()/2);
+		hb.setHealthPercentage(1);
+		
 		setScale(0.75);
 		int[] x = new int[] { 102, 102, 102, 103, 104, 104, 104, 104, 109, 123,
 				146, 171, 197, 222, 248, 274, 300, 325, 351, 377, 401, 415,
@@ -36,7 +47,7 @@ public abstract class Enemy extends GSprite { // can not instantiate an abstract
 		PolygonController pc = new PolygonController(p);
 
 		pc.goToStart(this);
-		pc.setRotateToFollow(true);
+		pc.setRotateToFollow(false);
 
 		double slowness = getSlowness();
 		pc.setMaxSpeed(slowness * 3);
@@ -45,20 +56,32 @@ public abstract class Enemy extends GSprite { // can not instantiate an abstract
 	
 		BoundaryRemovalListener brl = new BoundaryRemovalListener();
 		addListener(brl);
+		
+		
 	}
     
-	@Override
-	public void preparePaint(Graphics2D g) {
-		super.preparePaint(g);
-		GObject.antialias(g);
-		goodImageTransforms(g);
-	}
-
+	
+	
 	/**
 	 * Gets the slowness (the time spent between waypoints) of this enemy.
 	 * 
 	 * @return the slowness
 	 */
 	public abstract double getSlowness();
+	@Override
+	public void preparePaint(Graphics2D g) {
+		super.preparePaint(g);
+		GObject.antialias(g);
+		goodImageTransforms(g);
+	}
+	
+	public double getCurrentHealth() {
+		return currentHealth;
+	}
+	
+	public void setCurrentHealth(double currentHealth) {
+		this.currentHealth = currentHealth;
+		hb.setHealthPercentage(this.currentHealth/maxHealth);
+	}
 
 }

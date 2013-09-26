@@ -1,4 +1,7 @@
 *.class
+*.ogg
+*.wav
+*.png
 
 # Package Files #
 *.jar

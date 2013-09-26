@@ -14,6 +14,7 @@ import jgame.GContainer;
 import jgame.GObject;
 import jgame.GSprite;
 import jgame.ImageCache;
+import jgame.listener.DelayListener;
 import jgame.listener.TimerListener;
 
 public class PKPlayArea extends GContainer {
@@ -22,12 +23,12 @@ public class PKPlayArea extends GContainer {
 		setSize(800, 600);
 		this.setBackgroundColor(Color.BLACK);
 
-		BufferedImage bg = ImageCache.forClass(PhatKids.class).get("areas/bg5.png");
+		BufferedImage bg = ImageCache.forClass(PhatKids.class).get(
+				"areas/bg5.png");
 		GSprite gs = new GSprite(bg);
 		setBackgroundSprite(gs);
 
-		
-		TimerListener pkEnemyTimer = new TimerListener(200) {
+		final TimerListener pkEnemyTimer = new TimerListener(30) {
 
 			@Override
 			public void invoke(GObject target, Context context) {
@@ -35,14 +36,37 @@ public class PKPlayArea extends GContainer {
 			}
 		};
 
-	addListener(pkEnemyTimer);
+		TimerListener tlAdd = new TimerListener(180) {
+
+			@Override
+			public void invoke(GObject target, Context context) {
+				addListener(pkEnemyTimer);
+			}
+		};
+
+		final TimerListener tlRemove = new TimerListener(180) {
+
+			@Override
+			public void invoke(GObject target, Context context) {
+				removeListener(pkEnemyTimer);
+			}
+		};
+
+		addListener(tlAdd);
+		DelayListener dl = new DelayListener(45) {
+			@Override
+			public void invoke(GObject target, Context context) {
+				addListener(tlRemove);
+			}
+		};
+		addListener(dl);
 
 	}
 
 	private void addRandomEnemy() {
 
 		int enemyPick = (int) (Math.random() * 4);
-		
+
 		Enemy e = null;
 		//
 		switch (enemyPick) {
@@ -57,7 +81,7 @@ public class PKPlayArea extends GContainer {
 		case 2:
 			e = new EnemyThree();
 			break;
-			
+
 		case 3:
 			e = new EnemyFour();
 			break;
