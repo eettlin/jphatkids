@@ -20,7 +20,8 @@ public abstract class Enemy extends GSprite { // can not instantiate an abstract
 		super(image);
 		maxHealth = maxHlth;
 		currentHealth =maxHealth;
-		
+
+		hb.setWidth(getWidth());
 		addAtCenter(hb);
 		hb.setY(this.getHeight()-hb.getHeight()/2);
 		hb.setHealthPercentage(1);

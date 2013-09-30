@@ -5,10 +5,10 @@ import java.awt.Graphics2D;
 
 import jgame.Context;
 import jgame.GObject;
-import jgame.ImageCache;
 import jgame.listener.TimerListener;
 
 public class HealthBar extends GObject {
+	private static final int BORDER = 3;
 	private double healthPercentage = 1;
 
 	public HealthBar() {
@@ -31,8 +31,8 @@ public class HealthBar extends GObject {
 
 		float hbHue = (float) Math.pow(healthPercentage, 2) / 3f;
 		g.setColor(Color.getHSBColor(hbHue, 1f, 1f));
-		g.fillRect(3, 3, (int) ((getWidth() * healthPercentage) - 6),
-				getIntHeight() - 6);
+		g.fillRect(BORDER, BORDER, (int) ((getWidth() * healthPercentage) - BORDER * 2),
+				getIntHeight() - BORDER * 2);
 	}
 
 	public double getHealthPercentage() {
