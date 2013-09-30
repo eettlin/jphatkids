@@ -57,7 +57,7 @@ public class PhatKidsGameView extends GContainer {
 		}
 		settingTurret = true;  // This is only run when init turret 
 		
-		final RangeRing rr = new RangeRing(300);
+		final RangeRing rr = new RangeRing(t.getFireRange());
 		this.pa.addAtCenter(rr);
 		////
 
