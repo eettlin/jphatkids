@@ -6,7 +6,7 @@ import jgame.ImageCache;
 public class BulletOne extends Bullet {
 
 	public BulletOne() {
-		super(ImageCache.forClass(PhatKids.class).get("bullets/b1.png"), 1);
+		super(ImageCache.forClass(PhatKids.class).get("bullets/b1.png"),3);
 	}
 	
 

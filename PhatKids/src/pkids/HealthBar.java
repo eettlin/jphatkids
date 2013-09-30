@@ -3,9 +3,7 @@ package pkids;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import jgame.Context;
 import jgame.GObject;
-import jgame.listener.TimerListener;
 
 public class HealthBar extends GObject {
 	private static final int BORDER = 3;
@@ -13,13 +11,7 @@ public class HealthBar extends GObject {
 
 	public HealthBar() {
 		this.setSize(90, 15);
-		TimerListener timer = new TimerListener(10) {
-			@Override
-			public void invoke(GObject target, Context context) {
-				healthPercentage -= 0.01;
-			}
-		};
-		addListener(timer);
+		
 	}
 
 	@Override
