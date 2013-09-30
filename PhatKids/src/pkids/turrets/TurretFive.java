@@ -23,7 +23,7 @@ public class TurretFive extends Turret {
 
 	@Override
 	public double getFireRange() {
-		return 300;
+		return 150;
 	}
 
 	@Override

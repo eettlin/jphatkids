@@ -10,7 +10,7 @@ public class TurretThree extends Turret {
 	@Override
 	public double getFireRange() {
 		// TODO Auto-generated method stub
-		return 700;
+		return 250;
 	}
 
 	public TurretThree() {

@@ -11,6 +11,7 @@ import jgame.GObject;
 import jgame.GSprite;
 import jgame.SoundManager;
 import jgame.controller.ConstantMovementController;
+import jgame.listener.DelayListener;
 import jgame.listener.FrameListener;
 
 public abstract class Turret extends GSprite {
@@ -76,15 +77,23 @@ public abstract class Turret extends GSprite {
 
 	public void fireBullet() {
 		// create an instance of BulletOne
-		Bullet b = createBullet(); // new Bullet(getBulletImage(),
+		final Bullet b = createBullet(); // new Bullet(getBulletImage(),
 									// getBulletDamage());
 		// set direction of bullet one
 		b.setRotation(this.getRotation());
+		final ConstantMovementController c = ConstantMovementController.createPolar(
+				getBulletSpeed(), getRotation());
+		DelayListener dl = new DelayListener(10) {
+			
+			@Override
+			public void invoke(GObject target, Context context) {
+				//after specified frames start moving
+				c.setDamping(1.1);
+				b.addController(c);
+			}
+		};
+		b.addListener(dl);
 		// move the bullets at a particular speed
-		ConstantMovementController c = ConstantMovementController.createPolar(
-				this.getBulletSpeed(), this.getRotation());
-		c.setDamping(1.1);
-		b.addController(c);
 		snapAnchor(b);
 		b.moveAtAngle(getWidth() / 2 + 20, getRotation());
 		this.addSibling(b);

@@ -7,7 +7,7 @@ import jgame.GObject;
 
 public class RangeRing extends GObject {
 	public RangeRing(double radius) {
-		setSize(radius, radius);
+		setSize(radius*2, radius*2);
 	}
 
 	// William promises paint will be called every frame

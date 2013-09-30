@@ -26,7 +26,7 @@ public class TurretFour extends Turret {
 	@Override
 	public double getFireRange() {
 		// TODO Auto-generated method stub
-		return 400;
+		return 200;
 	}
 
 	@Override

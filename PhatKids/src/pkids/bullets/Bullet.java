@@ -10,6 +10,7 @@ import jgame.Context;
 import jgame.GObject;
 import jgame.GSprite;
 import jgame.SoundManager;
+import jgame.controller.ScaleTween;
 import jgame.listener.BoundaryRemovalListener;
 import jgame.listener.HitTestListener;
 
@@ -41,6 +42,9 @@ public class Bullet extends GSprite {
 			}
 		};
 		addListener(htl);
+		
+		ScaleTween st = new ScaleTween(30, 2.0, 1);
+		addController(st);
 	}
 
 	public double getBd() {
