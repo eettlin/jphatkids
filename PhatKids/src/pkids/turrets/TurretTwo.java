@@ -18,6 +18,12 @@ public class TurretTwo extends Turret {
 	}
 
 	@Override
+	public double getFireRange() {
+		// TODO Auto-generated method stub
+		return 450;
+	}
+
+	@Override
 	public double getBulletSpeed() {
 		// TODO Auto-generated method stub
 		return 5;

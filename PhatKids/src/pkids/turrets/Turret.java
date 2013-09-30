@@ -31,9 +31,9 @@ public abstract class Turret extends GSprite {
 				}
 
 				// set rotaation of turret to point toward nearest enemy
-				//this is pointing to a list that jgame has created wo alloct
+				// this is pointing to a list that jgame has created wo alloct
 				List<Enemy> enemies = context.getInstancesOfClass(Enemy.class);
-				double minimumDistance = 3000 ;
+				double minimumDistance = Integer.MAX_VALUE;
 				Enemy closest = null;
 
 				for (Enemy e : enemies) {
@@ -48,24 +48,25 @@ public abstract class Turret extends GSprite {
 				if (closest != null) {
 					target.face(closest);
 					target.setRotation(target.getRotation());
-					
+
 					// If placed fire bullet and range OK
 					// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-					
-					if (fireTimer < 0 && (closest.distanceTo(target) < 400)) {
+
+					if (fireTimer < 0
+							&& (closest.distanceTo(target) < getFireRange())) {
 						fireBullet();
 						SoundManager.forClass(PhatKids.class).play("pop2.wav");
 						fireTimer = getFireDelay();
 					}
 				}
 
-				
-
 			}
 
 		}); // End of the invoke method from the frame listener
 
 	}
+
+	public abstract double getFireRange();
 
 	public abstract int getFireDelay();
 
@@ -75,7 +76,8 @@ public abstract class Turret extends GSprite {
 
 	public void fireBullet() {
 		// create an instance of BulletOne
-		Bullet b = createBullet(); //new Bullet(getBulletImage(), getBulletDamage());
+		Bullet b = createBullet(); // new Bullet(getBulletImage(),
+									// getBulletDamage());
 		// set direction of bullet one
 		b.setRotation(this.getRotation());
 		// move the bullets at a particular speed

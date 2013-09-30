@@ -24,6 +24,11 @@ public class TurretOne extends Turret {
 	}
 
 	@Override
+	public double getFireRange() {
+		return 200;
+	}
+
+	@Override
 	public Bullet createBullet() {
 		return new BulletOne();
 	}
