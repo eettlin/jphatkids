@@ -1,4 +1,4 @@
-package pkids;
+  package pkids;
 
 import java.awt.Color;
 
@@ -27,7 +27,6 @@ public class PhatKids extends Game {
 		// add these two lines for each view
 		PhatKidsGameView pkgv = new PhatKidsGameView();
 		root.addView(Views.GAME, pkgv);
-
 //		setTargetFPS(24);
 	}	
 

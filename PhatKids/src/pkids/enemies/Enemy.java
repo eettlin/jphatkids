@@ -46,7 +46,7 @@ public abstract class Enemy extends GSprite { // can not instantiate an abstract
 				403, 428, 453, 478, 504, 530, 556, 581, 607, 632, 658, 683 };
 		Polygon p = new Polygon(x, y, 96);
 		PolygonController pc = new PolygonController(p);
-
+		
 		pc.goToStart(this);
 		pc.setRotateToFollow(false);
 

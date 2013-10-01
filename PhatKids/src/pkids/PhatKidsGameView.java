@@ -20,8 +20,7 @@ public class PhatKidsGameView extends GContainer {
 
 	public PhatKidsGameView() {
 		SoundManager.forClass(PhatKids.class).loopForever("crave.ogg");
-		
-		
+
 		// Set the size.
 		setSize(900, 700);
 
