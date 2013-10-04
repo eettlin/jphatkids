@@ -2,18 +2,19 @@ package pkids;
 
 import java.awt.Polygon;
 
-import pkids.areas.InfoArea;
-import pkids.areas.MenuArea;
-import pkids.areas.PKPlayArea;
-import pkids.areas.ToolArea;
-import pkids.turrets.RangeRing;
-import pkids.turrets.Turret;
 import jgame.Context;
 import jgame.GContainer;
 import jgame.GObject;
 import jgame.SoundManager;
 import jgame.controller.MouseLocationController;
 import jgame.listener.LocalClickListener;
+import pkids.areas.InfoArea;
+import pkids.areas.MenuArea;
+import pkids.areas.PKPlayArea;
+import pkids.areas.ToolArea;
+import pkids.turrets.RangeRing;
+import pkids.turrets.Turret;
+import pkids.turrets.TurretFour;
 
 public class PhatKidsGameView extends GContainer {
 
@@ -90,6 +91,16 @@ public class PhatKidsGameView extends GContainer {
 				318, 322, 323, 321, 318, 316, 318, 316, 314, 315, 313 };
 		final Polygon p = new Polygon(x, y, 118);
 
+		final int[] xwater = new int[] { 746, 740, 732, 723, 712, 701, 689,
+				674, 656, 635, 613, 589, 566, 542, 517, 492, 468, 444, 420,
+				398, 377, 356, 335, 315, 297, 281, 266, 249, 233, 216, 199,
+				182, 163, 143, 122, 102, 81, 61 };
+		final int[] ywater = new int[] { 2, 27, 51, 75, 98, 121, 143, 164, 183,
+				199, 212, 221, 232, 240, 247, 254, 262, 270, 278, 291, 305,
+				320, 334, 350, 369, 389, 410, 429, 449, 468, 487, 506, 524,
+				540, 554, 570, 585, 601 };
+		final Polygon pwater = new Polygon(xwater, ywater, 38);
+
 		final LocalClickListener dropListener = new LocalClickListener() { // mouse
 																			// click
 																			// listener
@@ -102,7 +113,14 @@ public class PhatKidsGameView extends GContainer {
 			@Override
 			public void invoke(GObject target, Context context) {
 				for (int i = 0; i < 118; i++) {
-					if (target.distanceTo(x[i], y[i]) < 50) {
+					if (target.distanceTo(x[i], y[i]) < 30) {
+						return;
+					}
+				}
+				for (int i = 0; i < 38; i++) {
+					if (!(t instanceof TurretFour)
+							&& (t.distanceTo(xwater[i], ywater[i]) < 30 || target
+									.distanceTo(377, 305) < 50)) {
 						return;
 					}
 				}
