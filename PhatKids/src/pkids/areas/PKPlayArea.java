@@ -24,7 +24,7 @@ public class PKPlayArea extends GContainer {
 		this.setBackgroundColor(Color.BLACK);
 
 		BufferedImage bg = ImageCache.forClass(PhatKids.class).get(
-				"areas/bg5.png");
+				"areas/bg1.png");
 		GSprite gs = new GSprite(bg);
 		setBackgroundSprite(gs);
 
@@ -52,14 +52,14 @@ public class PKPlayArea extends GContainer {
 			}
 		};
 
-		addListener(tlAdd);
-		DelayListener dl = new DelayListener(45) {
-			@Override
-			public void invoke(GObject target, Context context) {
-				addListener(tlRemove);
-			}
-		};
-		addListener(dl);
+//		addListener(tlAdd);
+//		DelayListener dl = new DelayListener(45) {
+//			@Override
+//			public void invoke(GObject target, Context context) {
+//				addListener(tlRemove);
+//			}
+//		};
+		addListener(pkEnemyTimer);
 
 	}
 

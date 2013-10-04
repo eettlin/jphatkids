@@ -21,13 +21,21 @@ public class PhatKids extends Game {
 
 	public PhatKids(){
 		//GRootContainer is not a game object (Deck of cards)
-		GRootContainer root = new GRootContainer(Color.BLUE );
+		GRootContainer root = new GRootContainer(Color.BLACK );
 		setRootContainer(root);
+		
+		PhatKidsMainMenuView pkmv = new PhatKidsMainMenuView();
+		root.addView(Views.MAIN_MENU, pkmv);
+		/*
+		PhatKidsInstructionsView pkiv = new PhatKidsInstructionsView();
+		root.addView(Views.INSTRUCTIONS, pkiv);*/
 		
 		// add these two lines for each view
 		PhatKidsGameView pkgv = new PhatKidsGameView();
 		root.addView(Views.GAME, pkgv);
-//		setTargetFPS(24);
+		
+		
+
 	}	
 
 	/**	These are all of the views for this game
@@ -36,7 +44,7 @@ public class PhatKids extends Game {
 	 */
 	public enum Views{
 		//		These are all of the views for this game
-		INSTRUCTIONS, GAME, GAME_OVER, OTHER; 
+		INSTRUCTIONS, MAIN_MENU, GAME, GAME_OVER, OTHER; 
 	}
 
 }
