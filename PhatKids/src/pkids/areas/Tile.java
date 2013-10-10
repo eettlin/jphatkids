@@ -25,16 +25,14 @@ public class Tile extends GContainer {
 		setSize(92, 96);
 		this.setBackgroundColor(Color.gray);
 
-		ImageCache cache = ImageCache.forClass(PhatKids.class);
-		Image iNone = cache.get("tiles/tile_none.png");
-		Image iHover = cache.get("tiles/tile_hover.png");
-		Image iPressed = cache.get("tiles/tile_pressed.png");
+		//ImageCache cache = ImageCache.forClass(PhatKids.class);
+		// Image iNone = cache.get("tiles/tile_none.png");
+		// GSprite sNone = new GSprite(iNone);
+		GSprite sNone = ImageCache.getSprite("tiles/tile_none.png");
+		GSprite sHover = ImageCache.getSprite("tiles/tile_hover.png");
+		GSprite sPressed = ImageCache.getSprite("tiles/tile_pressed.png");
 
 		GButton buttonIcon = new GButton();
-
-		GSprite sNone = new GSprite(iNone);
-		GSprite sHover = new GSprite(iHover);
-		GSprite sPressed = new GSprite(iPressed);
 
 		buttonIcon.setStateSprite(ButtonState.NONE, sNone);
 		buttonIcon.setStateSprite(ButtonState.HOVERED, sHover);

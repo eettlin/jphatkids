@@ -8,6 +8,7 @@ import jgame.ButtonState;
 import jgame.Context;
 import jgame.GButton;
 import jgame.GContainer;
+import jgame.GMessage;
 import jgame.GObject;
 import jgame.GSprite;
 import jgame.ImageCache;
@@ -24,18 +25,16 @@ public class PhatKidsMainMenuView extends GContainer {
 	public PhatKidsMainMenuView() {
 		setSize(900, 700);
 		this.setBackgroundColor(Color.GRAY);
-		BufferedImage bg = ImageCache.forClass(PhatKids.class).get(
-				"areas/MenuArea.png");
-		GSprite gs = new GSprite(bg);
-		this.setBackgroundSprite(gs);
-
-		GButton mbPlay = createButton(0);
-		
+		this.setBackgroundSprite(ImageCache.getSprite("areas/MenuArea.png"));
+		//Instead of new GButton();
+		GButton mbPlay = this.createButton(0, "Play");
 		mbPlay.setLocation(-100, 200);
 //		add(mbPlay);
-		GButton mbInstructions = createButton(1);
+		GButton mbInstructions = createButton(1, "Instructions");
 		mbInstructions.setLocation(-100, 300);
 //		add(mbInstructions);
+		GButton mbQuit = this.createButton(2, "Quit");
+		mbPlay.setLocation(-100, 200);
 
 		ButtonListener bl = new ButtonListener() {
 			// goto Source --> Override and Implement
@@ -50,24 +49,34 @@ public class PhatKidsMainMenuView extends GContainer {
 
 	}
 
-	private GButton createButton(final int buttonIndex) {
+	private GButton createButton(final int buttonIndex, String buttonText) {
 		
 		MovementTween mt = new MovementTween(24, Interpolation.EASE_IN,  400, 0);
 		MovementTween mtb = new MovementTween(6, Interpolation.EASE_OUT, -40,
 				0);
-		RotationTween rt = new RotationTween(12, 0, 360);
-		ScaleTween st = new ScaleTween(10, 1, 5);
-		ScaleTween st2 = new ScaleTween(10, 5, 1);
-		mt.chain(mtb, rt, st, st2);
+		//RotationTween rt = new RotationTween(12, 0, 360);
+		//ScaleTween st = new ScaleTween(10, 1, 5);
+		//ScaleTween st2 = new ScaleTween(10, 5, 1);
+		mt.chain(mtb);
+		//rt.with(st);
+		//st.chain(st2);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          );
 		final GButton btn = new GButton();
+		btn.addController(mt);
 		btn.setStateSprite(ButtonState.NONE,
 				createButtonSprite("buttons/buttonup.png"));
 		btn.setStateSprite(ButtonState.HOVERED,
 				createButtonSprite("buttons/buttonhover.png"));
 		btn.setStateSprite(ButtonState.PRESSED,
 				createButtonSprite("buttons/buttonpressed.png"));
-		btn.addController(mt);
-		btn.setSize(150, 50);
+		btn.setSize(250, 50);
+		GMessage gm = new GMessage(buttonText);
+		
+		gm.setSize(btn.getWidth(), btn.getHeight());
+		gm.setAlignmentX(0.5);
+		gm.setAlignmentY(0.5);
+		gm.setFontSize(28);
+		gm.setColor(Color.BLUE);
+		btn.addAtCenter(gm);
 		
 		DelayListener dl = new DelayListener(buttonIndex * 10) {
 			

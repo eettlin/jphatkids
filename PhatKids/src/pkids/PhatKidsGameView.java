@@ -78,7 +78,7 @@ public class PhatKidsGameView extends GContainer {
 				285, 308, 333, 358, 383, 407, 416, 417, 408, 385, 361, 337,
 				316, 302, 300, 304, 314, 330, 353, 378, 403, 426, 443, 459,
 				477, 501, 526, 551, 576, 601, 626, 651, 676, 701, 726, 751,
-				776, 801 };
+				776, 801, 950 };
 		final int[] y = new int[] { 4, 31, 56, 81, 106, 129, 143, 148, 147,
 				137, 123, 109, 95, 83, 73, 67, 66, 66, 68, 74, 83, 93, 107,
 				123, 142, 163, 184, 206, 229, 253, 278, 304, 330, 355, 380,
@@ -88,9 +88,10 @@ public class PhatKidsGameView extends GContainer {
 				371, 347, 322, 296, 269, 244, 221, 199, 181, 165, 154, 147,
 				144, 143, 151, 175, 200, 224, 234, 242, 251, 267, 288, 313,
 				338, 361, 381, 392, 397, 396, 385, 366, 346, 328, 319, 316,
-				318, 322, 323, 321, 318, 316, 318, 316, 314, 315, 313 };
-		final Polygon p = new Polygon(x, y, 118);
-
+				318, 322, 323, 321, 318, 316, 318, 316, 314, 315, 313, 313 };
+		
+		final Polygon p = new Polygon(x, y, 119);
+		//From waypoint joint generator
 		final int[] xwater = new int[] { 746, 740, 732, 723, 712, 701, 689,
 				674, 656, 635, 613, 589, 566, 542, 517, 492, 468, 444, 420,
 				398, 377, 356, 335, 315, 297, 281, 266, 249, 233, 216, 199,
@@ -109,15 +110,16 @@ public class PhatKidsGameView extends GContainer {
 																			// on
 																			// turret
 																			// (see
-																			// below)
+																	// below)
 			@Override
 			public void invoke(GObject target, Context context) {
-				for (int i = 0; i < 118; i++) {
+				//Check to see if close to road
+				for (int i = 0; i < p.npoints; i++) {
 					if (target.distanceTo(x[i], y[i]) < 30) {
 						return;
 					}
 				}
-				for (int i = 0; i < 38; i++) {
+				for (int i = 0; i < pwater.npoints; i++) {
 					if (!(t instanceof TurretFour)
 							&& (t.distanceTo(xwater[i], ywater[i]) < 30 || target
 									.distanceTo(377, 305) < 50)) {

@@ -37,7 +37,7 @@ public abstract class Enemy extends GSprite { // can not instantiate an abstract
 				237, 228, 219, 213, 213, 216, 223, 233, 246, 264, 285, 308,
 				333, 358, 383, 407, 416, 417, 408, 385, 361, 337, 316, 302,
 				300, 304, 314, 330, 353, 378, 403, 426, 443, 459, 477, 501,
-				526, 551, 576, 601, 626, 651, 676, 701, 726, 751, 776, 801 };
+				526, 551, 576, 601, 626, 651, 676, 701, 726, 751, 776, 801, 905 };
 		int[] y = new int[] { 4, 31, 56, 81, 106, 129, 143, 148, 147, 137, 123,
 				109, 95, 83, 73, 67, 66, 66, 68, 74, 83, 93, 107, 123, 142,
 				163, 184, 206, 229, 253, 278, 304, 330, 355, 380, 404, 428,
@@ -47,20 +47,20 @@ public abstract class Enemy extends GSprite { // can not instantiate an abstract
 				322, 296, 269, 244, 221, 199, 181, 165, 154, 147, 144, 143,
 				151, 175, 200, 224, 234, 242, 251, 267, 288, 313, 338, 361,
 				381, 392, 397, 396, 385, 366, 346, 328, 319, 316, 318, 322,
-				323, 321, 318, 316, 318, 316, 314, 315, 313 };
-		Polygon p = new Polygon(x, y, 118);
+				323, 321, 318, 316, 318, 316, 314, 315, 313, 313 };
+		
+		Polygon p = new Polygon(x, y, 119);
 		PolygonController pc = new PolygonController(p);
 
 		pc.goToStart(this);
-		pc.setRotateToFollow(false);
+		pc.setRotateToFollow(true);
 
 		double slowness = getSlowness();
 		pc.setMaxSpeed(slowness * 3);
-
-		addController(pc);
+		this.addController(pc);
 
 		BoundaryRemovalListener brl = new BoundaryRemovalListener();
-		addListener(brl);
+		this.addListener(brl);
 
 	}
 
