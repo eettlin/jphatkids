@@ -33,10 +33,7 @@ public class Bullet extends GSprite {
 				SoundManager.forClass(PhatKids.class).play("bink.wav");
 				for (Enemy enemy : enemies) {
 					enemy.setCurrentHealth(enemy.getCurrentHealth()-bd);
-					if(enemy.getCurrentHealth() <= 0)
-					{
-					  enemy.removeSelf();
-					}
+					
 				}
 				target.removeSelf();
 			}

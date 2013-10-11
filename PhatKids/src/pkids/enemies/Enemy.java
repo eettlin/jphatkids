@@ -53,7 +53,7 @@ public abstract class Enemy extends GSprite { // can not instantiate an abstract
 		PolygonController pc = new PolygonController(p);
 
 		pc.goToStart(this);
-		pc.setRotateToFollow(true);
+		pc.setRotateToFollow(false);
 
 		double slowness = getSlowness();
 		pc.setMaxSpeed(slowness * 3);
@@ -85,6 +85,16 @@ public abstract class Enemy extends GSprite { // can not instantiate an abstract
 	public void setCurrentHealth(double currentHealth) {
 		this.currentHealth = currentHealth;
 		hb.setHealthPercentage(this.currentHealth / maxHealth);
+		if(currentHealth <= 0)
+		{
+			//remove the  enemy and play explode
+			Explode  expld = new Explode();
+			addSibling(expld);
+			snapAnchor(expld);
+			this.removeSelf();
+			
+		}
+		
 	}
 
 }

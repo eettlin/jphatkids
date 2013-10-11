@@ -13,7 +13,7 @@ public class TurretTwo extends Turret {
 
 	@Override
 	public int getFireDelay() {
-		return 35;
+		return 7;
 	}
 
 	@Override
