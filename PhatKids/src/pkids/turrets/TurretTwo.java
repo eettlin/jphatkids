@@ -7,6 +7,12 @@ import jgame.ImageCache;
 
 public class TurretTwo extends Turret {
 
+	@Override
+	public int getFireCoolDown() {
+		// TODO Auto-generated method stub
+		return 50;
+	}
+
 	public TurretTwo() {
 		super(ImageCache.forClass(PhatKids.class).get("turrets/tt2.png"));
 	}

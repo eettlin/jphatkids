@@ -18,9 +18,14 @@ public abstract class Turret extends GSprite {
 
 	private boolean placed = false;
 	private int fireTimer = 0;
-
+	//*****************************
+	private boolean fireOK = true;
+	private int bulletsFired = 0;
+	private int fireCoolDown = 100;
+	//*****************************
 	public Turret(Image image) {
 		super(image);
+		
 		this.addListener(new FrameListener() {
 
 			@Override
@@ -31,6 +36,7 @@ public abstract class Turret extends GSprite {
 					return;
 				}
 
+				fireCoolDown = getFireCoolDown();
 				// set rotaation of turret to point toward nearest enemy
 				// this is pointing to a list that jgame has created wo alloct
 				List<Enemy> enemies = context.getInstancesOfClass(Enemy.class);
@@ -44,21 +50,40 @@ public abstract class Turret extends GSprite {
 						closest = e;
 					}
 				}
-
+				
 				fireTimer--;
 				if (closest != null) {
 					target.face(closest);
 					target.setRotation(target.getRotation());
-
-					// If placed fire bullet and range OK
-					// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-					if (fireTimer < 0
-							&& (closest.distanceTo(target) < getFireRange())) {
+					
+					// If placed fire bullet 
+					if (	fireTimer < 0
+						&& (closest.distanceTo(target) < getFireRange())
+						&& fireOK)//for cooldown 
+					{
 						fireBullet();
+						bulletsFired++;
 						SoundManager.forClass(PhatKids.class).play("pop2.wav");
 						fireTimer = getFireDelay();
 					}
+					//++++++++++++++++++++++++++++++++
+					if(bulletsFired >= 5)
+					{
+						fireOK = false;
+						bulletsFired = 0;
+					}
+					//initiate fireCoolDown
+					if(!fireOK)
+					{
+					   fireCoolDown--;
+					   if(fireCoolDown < 0)
+					   {
+						  fireCoolDown = getFireCoolDown();
+						  fireOK = true;
+					   }
+					}
+					//++++++++++++++++++++++++++++++++++++++++++++++
+					
 				}
 
 			}
@@ -70,6 +95,10 @@ public abstract class Turret extends GSprite {
 	public abstract double getFireRange();
 
 	public abstract int getFireDelay();
+	
+	public abstract int getFireCoolDown();
+	
+	//public abstract void setFireCoolDown(int fcd);
 
 	public abstract double getBulletSpeed();
 

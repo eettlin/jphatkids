@@ -8,6 +8,12 @@ import jgame.ImageCache;
 public class TurretThree extends Turret {
 
 	@Override
+	public int getFireCoolDown() {
+		// TODO Auto-generated method stub
+		return 300;
+	}
+
+	@Override
 	public double getFireRange() {
 		// TODO Auto-generated method stub
 		return 250;

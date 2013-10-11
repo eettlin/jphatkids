@@ -10,13 +10,21 @@ public class TurretOne extends Turret {
 	public TurretOne() {
 		super(ImageCache.forClass(PhatKids.class).get("turrets/tt1.png"));
 		
+		
 	
 	}
 
 	@Override
 	public int getFireDelay() {
-		return 120;
+		return 20;
 	}
+
+	@Override
+	public int getFireCoolDown() {
+		return 90;
+	}
+
+	
 
 	@Override
 	public double getBulletSpeed() {
