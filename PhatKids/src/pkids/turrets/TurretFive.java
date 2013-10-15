@@ -20,7 +20,7 @@ public class TurretFive extends Turret {
 
 	@Override
 	public int getFireCoolDown() {
-		return 180;
+		return 90;
 	}
 
 	@Override

@@ -24,7 +24,7 @@ public class PKPlayArea extends GContainer {
 		this.setBackgroundColor(Color.BLACK);
 
 		BufferedImage bg = ImageCache.forClass(PhatKids.class).get(
-				"areas/bg1.png");
+				"areas/bg2.png");
 		GSprite gs = new GSprite(bg);
 		setBackgroundSprite(gs);
 

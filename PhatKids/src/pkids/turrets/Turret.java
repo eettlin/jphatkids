@@ -37,8 +37,8 @@ public abstract class Turret extends GSprite {
 				}
 
 				fireCoolDown = getFireCoolDown();
-				// set rotaation of turret to point toward nearest enemy
-				// this is pointing to a list that jgame has created wo alloct
+				// set rotation of turret to point toward nearest enemy
+				// this is pointing to a list that jgame has created w/o alloct
 				List<Enemy> enemies = context.getInstancesOfClass(Enemy.class);
 				double minimumDistance = Integer.MAX_VALUE;
 				Enemy closest = null;

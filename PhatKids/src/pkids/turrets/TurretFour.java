@@ -9,7 +9,6 @@ public class TurretFour extends Turret {
 
 	@Override
 	public int getFireCoolDown() {
-		// TODO Auto-generated method stub
 		return 200;
 	}
 
