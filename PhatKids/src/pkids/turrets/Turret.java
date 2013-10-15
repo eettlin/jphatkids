@@ -18,14 +18,15 @@ public abstract class Turret extends GSprite {
 
 	private boolean placed = false;
 	private int fireTimer = 0;
-	//*****************************
+	// *****************************
 	private boolean fireOK = true;
 	private int bulletsFired = 0;
-	private int fireCoolDown = 100;
-	//*****************************
+	private int fireCoolDown = getFireCoolDown();
+
+	// *****************************
 	public Turret(Image image) {
 		super(image);
-		
+
 		this.addListener(new FrameListener() {
 
 			@Override
@@ -36,7 +37,6 @@ public abstract class Turret extends GSprite {
 					return;
 				}
 
-				fireCoolDown = getFireCoolDown();
 				// set rotation of turret to point toward nearest enemy
 				// this is pointing to a list that jgame has created w/o alloct
 				List<Enemy> enemies = context.getInstancesOfClass(Enemy.class);
@@ -50,42 +50,39 @@ public abstract class Turret extends GSprite {
 						closest = e;
 					}
 				}
-				
+
 				fireTimer--;
 				if (closest != null) {
 					target.face(closest);
 					target.setRotation(target.getRotation());
-					
-					// If placed fire bullet 
-					if (	fireTimer < 0
-						&& (closest.distanceTo(target) < getFireRange())
-						&& fireOK)//for cooldown 
+
+					// If placed fire bullet
+					if (fireTimer < 0
+							&& (closest.distanceTo(target) < getFireRange())
+							&& fireOK)// for cooldown
 					{
 						fireBullet();
 						bulletsFired++;
 						SoundManager.forClass(PhatKids.class).play("pop2.wav");
 						fireTimer = getFireDelay();
 					}
-					//++++++++++++++++++++++++++++++++
-					if(bulletsFired >= 5)
-					{
+					// ++++++++++++++++++++++++++++++++
+					if (bulletsFired >= 5) {
 						fireOK = false;
 						bulletsFired = 0;
 					}
-					//initiate fireCoolDown
-					if(!fireOK)
-					{
-					   fireCoolDown--;
-					   if(fireCoolDown < 0)
-					   {
-						  fireCoolDown = getFireCoolDown();
-						  fireOK = true;
-					   }
-					}
-					//++++++++++++++++++++++++++++++++++++++++++++++
-					
+					// ++++++++++++++++++++++++++++++++++++++++++++++
+
 				}
 
+				// initiate fireCoolDown
+				if (!fireOK) {
+					fireCoolDown--;
+					if (fireCoolDown < 0) {
+						fireCoolDown = getFireCoolDown();
+						fireOK = true;
+					}
+				}
 			}
 
 		}); // End of the invoke method from the frame listener
@@ -95,10 +92,10 @@ public abstract class Turret extends GSprite {
 	public abstract double getFireRange();
 
 	public abstract int getFireDelay();
-	
+
 	public abstract int getFireCoolDown();
-	
-	//public abstract void setFireCoolDown(int fcd);
+
+	// public abstract void setFireCoolDown(int fcd);
 
 	public abstract double getBulletSpeed();
 
@@ -107,16 +104,16 @@ public abstract class Turret extends GSprite {
 	public void fireBullet() {
 		// create an instance of BulletOne
 		final Bullet b = createBullet(); // new Bullet(getBulletImage(),
-									// getBulletDamage());
+		// getBulletDamage());
 		// set direction of bullet one
 		b.setRotation(this.getRotation());
-		final ConstantMovementController c = ConstantMovementController.createPolar(
-				getBulletSpeed(), getRotation());
+		final ConstantMovementController c = ConstantMovementController
+				.createPolar(getBulletSpeed(), getRotation());
 		DelayListener dl = new DelayListener(10) {
-			
+
 			@Override
 			public void invoke(GObject target, Context context) {
-				//after specified frames start moving
+				// after specified frames start moving
 				c.setDamping(1.1);
 				b.addController(c);
 			}
