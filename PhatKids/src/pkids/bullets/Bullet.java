@@ -40,7 +40,7 @@ public class Bullet extends GSprite {
 		};
 		addListener(htl);
 		
-		ScaleTween st = new ScaleTween(30, 2.0, 1);
+		ScaleTween st = new ScaleTween(30, 1.5, .25);
 		addController(st);
 	}
 
