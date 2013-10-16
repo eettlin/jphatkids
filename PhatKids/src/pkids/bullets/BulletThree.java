@@ -7,7 +7,7 @@ import jgame.controller.ConstantRotationController;
 public class BulletThree extends Bullet {
 
 	public BulletThree() {
-		super(ImageCache.forClass(PhatKids.class).get("bullets/b3.png"), 30);
+		super(ImageCache.getImage("bullets/b3.png"),30);
 		addController(new ConstantRotationController(5));
 	}
 	
