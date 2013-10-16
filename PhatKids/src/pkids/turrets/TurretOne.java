@@ -8,7 +8,7 @@ import jgame.ImageCache;
 public class TurretOne extends Turret {
 
 	public TurretOne() {
-		super(ImageCache.forClass(PhatKids.class).get("turrets/tt1.png"));
+		super(ImageCache.getImage("turrets/tt1.png"));
 		
 		
 	

@@ -95,8 +95,6 @@ public abstract class Turret extends GSprite {
 
 	public abstract int getFireCoolDown();
 
-	// public abstract void setFireCoolDown(int fcd);
-
 	public abstract double getBulletSpeed();
 
 	public abstract Bullet createBullet();
