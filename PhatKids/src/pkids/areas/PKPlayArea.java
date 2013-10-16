@@ -15,6 +15,9 @@ import jgame.GContainer;
 import jgame.GObject;
 import jgame.GSprite;
 import jgame.ImageCache;
+import jgame.controller.AlphaTween;
+import jgame.controller.EntranceExitController;
+import jgame.controller.MovementTween;
 import jgame.listener.DelayListener;
 import jgame.listener.TimerListener;
 
@@ -24,15 +27,17 @@ public class PKPlayArea extends GContainer {
 		setSize(800, 600);
 		this.setBackgroundColor(Color.BLACK);
 
-		//ImageCache.forClass(PhatKids.class).get("areas/bg1.png");
+		// ImageCache.forClass(PhatKids.class).get("areas/bg1.png");
 		BufferedImage bg = ImageCache.getImage("areas/bg1.png");
 		GSprite gs = new GSprite(bg);
 		setBackgroundSprite(gs);
-		
-		HeroKid  hk = new HeroKid();
-		
-		addAtCenter(hk);
-		
+
+		HeroKid hk = new HeroKid();
+
+		addAt(hk, 600, 319);
+		hk.setAlpha(0);
+		hk.addController(new MovementTween(30, 125, 0));
+		hk.addController(new AlphaTween(10, 0, 1));
 
 		final TimerListener pkEnemyTimer = new TimerListener(30) {
 
@@ -58,13 +63,13 @@ public class PKPlayArea extends GContainer {
 			}
 		};
 
-//		addListener(tlAdd);
-//		DelayListener dl = new DelayListener(45) {
-//			@Override
-//			public void invoke(GObject target, Context context) {
-//				addListener(tlRemove);
-//			}
-//		};
+		// addListener(tlAdd);
+		// DelayListener dl = new DelayListener(45) {
+		// @Override
+		// public void invoke(GObject target, Context context) {
+		// addListener(tlRemove);
+		// }
+		// };
 		addListener(pkEnemyTimer);
 
 	}
