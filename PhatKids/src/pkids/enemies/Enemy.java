@@ -7,9 +7,9 @@ import java.awt.Polygon;
 import jgame.GObject;
 import jgame.GSprite;
 import jgame.controller.PolygonController;
-import jgame.controller.PulsateController;
 import jgame.listener.BoundaryRemovalListener;
 import pkids.HealthBar;
+import pkids.HeroKid;
 
 public abstract class Enemy extends GSprite { // can not instantiate an abstract
 												// class
@@ -26,6 +26,7 @@ public abstract class Enemy extends GSprite { // can not instantiate an abstract
 		addAtCenter(hb);
 		hb.setY(this.getHeight() - hb.getHeight() / 2);
 		hb.setHealthPercentage(1);
+		
 
 		setScale(0.75);
 		int[] x = new int[] { 657, 657, 656, 654, 650, 640, 618, 593, 568, 545,
