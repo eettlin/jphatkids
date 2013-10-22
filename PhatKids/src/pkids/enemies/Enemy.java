@@ -69,11 +69,7 @@ public abstract class Enemy extends GSprite { // can not instantiate an abstract
 
 	}
 
-	/**
-	 * Gets the slowness (the time spent between waypoints) of this enemy.
-	 * 
-	 * @return the slowness
-	 */
+
 	public abstract double getSlowness();
 	
 	
@@ -100,8 +96,9 @@ public abstract class Enemy extends GSprite { // can not instantiate an abstract
 		hb.setHealthPercentage(this.currentHealth / maxHealth);
 		if(currentHealth <= 0)
 		{
-			//remove the  enemy and play explode
+			//Add value to bank
 			findGameBank().setCurrentValue(findGameBank().getCurrentValue() + cashValue);
+			//remove the  enemy and play explode
 			Explode  expld = new Explode();
 			addSibling(expld);
 			snapAnchor(expld);

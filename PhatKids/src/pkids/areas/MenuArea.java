@@ -18,8 +18,10 @@ public class MenuArea extends GContainer {
 	
 	public MenuArea(int bankValue) {
 		
+		if(getFirstAncestorOf(PhatKidsGameView.class).enemyExists)
+		{
 		findGameBank().setCurrentValue(bankValue);
-			
+		}
 		this.setBackgroundColor(Color.RED);
 
 		BufferedImage bg = ImageCache.forClass(PhatKids.class).get(
