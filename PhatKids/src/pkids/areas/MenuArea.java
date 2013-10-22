@@ -5,14 +5,18 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.util.List;
 
-import pkids.PhatKids;
 import jgame.GContainer;
 import jgame.GSprite;
 import jgame.ImageCache;
+import pkids.Bank;
+import pkids.PhatKids;
 
 public class MenuArea extends GContainer {
 
-	public MenuArea() {
+	private Bank gameBank = new Bank();
+	
+	public MenuArea(int bankValue) {
+		gameBank.setCurrentValue(bankValue); 
 		setSize(500, 100);
 		this.setBackgroundColor(Color.RED);
 
@@ -37,7 +41,7 @@ public class MenuArea extends GContainer {
 		// TODO Auto-generated method stub
 		// String[] menuIcons = {"miOne.png", "miTwo.png", "miThree.png",
 		// "miFour.png", "miFive.png"};
-		Tile tile = new Tile(new IndexedTurretRecipe(i), tileImages.get(i)); // ***************
+		Tile tile = new Tile(new IndexedTurretRecipe(i, gameBank, 100), tileImages.get(i)); // ***************
 		tile.setAnchorTopLeft();
 		//tile.setLocation(i * 98 + 7, 5);
 		tile.setScale(1.05);

@@ -33,7 +33,7 @@ public class PhatKidsGameView extends GContainer {
 		add(pa);
 
 		// Create Menu area and locate on stage
-		MenuArea ma = new MenuArea();
+		MenuArea ma = new MenuArea(500);
 		ma.setAnchorTopLeft();
 		ma.setLocation(0, 600);
 		add(ma);
