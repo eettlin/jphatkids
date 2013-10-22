@@ -19,6 +19,11 @@ public EnemyFour() {
 	public  void setSlowness(int s) {
 		slownes = s;
 	}
+	
+	@Override
+	public int getEnemyCashValue() {
+		return 200;
+	}
 
 
 }

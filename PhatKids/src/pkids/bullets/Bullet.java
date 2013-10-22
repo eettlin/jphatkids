@@ -24,22 +24,21 @@ public class Bullet extends GSprite {
 		bd = bulletDamage;
 		addListener(new BoundaryRemovalListener());
 		HitTestListener htl = new HitTestListener(Enemy.class) {
-			// target is the bullet and context is the crystal ball
-			// interface
 			@Override
 			public void invoke(GObject target, Context context) {
 				// import java.util.list (not java.awt)
 				List<Enemy> enemies = context.hitTestClass(Enemy.class);
 				SoundManager.forClass(PhatKids.class).play("bink.wav");
+				
 				for (Enemy enemy : enemies) {
-					enemy.setCurrentHealth(enemy.getCurrentHealth()-bd);
-					
+					enemy.setCurrentHealth(enemy.getCurrentHealth() - bd);
+
 				}
-				target.removeSelf();
+				target.removeSelf();// remove bullet
 			}
 		};
 		addListener(htl);
-		
+
 		ScaleTween st = new ScaleTween(30, 1.5, .25);
 		addController(st);
 	}
@@ -59,6 +58,5 @@ public class Bullet extends GSprite {
 	public void setInitialPosition(Point initialPosition) {
 		this.initialPosition = initialPosition;
 	}
-
 
 }

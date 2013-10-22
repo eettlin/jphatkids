@@ -20,6 +20,7 @@ public class PhatKidsGameView extends GContainer {
 
 	private PKPlayArea pa = new PKPlayArea();
 	private boolean settingTurret = false;
+	private Bank gameBank = new Bank();
 
 	public PhatKidsGameView() {
 		SoundManager.forClass(PhatKids.class).loopForever("crave.ogg");
@@ -102,15 +103,7 @@ public class PhatKidsGameView extends GContainer {
 				540, 554, 570, 585, 601 };
 		final Polygon pwater = new Polygon(xwater, ywater, 38);
 
-		final LocalClickListener dropListener = new LocalClickListener() { // mouse
-																			// click
-																			// listener
-																			// hears
-																			// click
-																			// on
-																			// turret
-																			// (see
-																	// below)
+		final LocalClickListener dropListener = new LocalClickListener() { 
 			@Override
 			public void invoke(GObject target, Context context) {
 				//Check to see if close to road
@@ -142,6 +135,14 @@ public class PhatKidsGameView extends GContainer {
 			}
 		};
 		t.addListener(dropListener);
+	}
+
+	public Bank getGameBank() {
+		return gameBank;
+	}
+
+	public void setGameBank(Bank gameBank) {
+		this.gameBank = gameBank;
 	}
 
 }

@@ -17,5 +17,10 @@ public class EnemyThree extends Enemy {
 		// TODO Auto-generated method stub
 		return 6;
 	}
+	
+	@Override
+	public int getEnemyCashValue() {
+		return 150;
+	}
 
 }

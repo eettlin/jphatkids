@@ -24,7 +24,7 @@ class IndexedTurretRecipe implements TurretRecipe {
 
 	@Override
 	public boolean canPurchase() {
-		if (bank.getCurrentValue() <= this.cost) {
+		if (bank.getCurrentValue() < this.cost) {
 			return false;
 		}
 		return true;

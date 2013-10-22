@@ -1,6 +1,5 @@
 package pkids.enemies;
 
-import pkids.PhatKids;
 import jgame.ImageCache;
 
 public class EnemyOne extends Enemy {
@@ -14,6 +13,11 @@ public class EnemyOne extends Enemy {
 	@Override
 	public double getSlowness() {
 		return 5;
+	}
+	
+	@Override
+	public int getEnemyCashValue() {
+		return 50;
 	}
 
 }

@@ -8,19 +8,22 @@ import jgame.GObject;
 import jgame.GSprite;
 import jgame.controller.PolygonController;
 import jgame.listener.BoundaryRemovalListener;
+import pkids.Bank;
 import pkids.HealthBar;
-import pkids.HeroKid;
+import pkids.PhatKidsGameView;
 
 public abstract class Enemy extends GSprite { // can not instantiate an abstract
 												// class
 	private double maxHealth;
 	private double currentHealth;
+	private int currentValue;
 	private HealthBar hb = new HealthBar();
 
 	public Enemy(Image image, double maxHlth) {
 		super(image);
 		maxHealth = maxHlth;
 		currentHealth = maxHealth;
+		this.currentValue = 50;
 
 		hb.setWidth(getWidth());
 		addAtCenter(hb);
@@ -57,6 +60,7 @@ public abstract class Enemy extends GSprite { // can not instantiate an abstract
 		pc.setRotateToFollow(false);
 
 		double slowness = getSlowness();
+		int turretCashValue = getEnemyCashValue();
 		pc.setMaxSpeed(slowness * 3);
 		this.addController(pc);
 
@@ -72,6 +76,9 @@ public abstract class Enemy extends GSprite { // can not instantiate an abstract
 	 */
 	public abstract double getSlowness();
 	
+	
+	public abstract int getEnemyCashValue();
+	int cashValue = getEnemyCashValue();
 
 	@Override
 	public void preparePaint(Graphics2D g) {
@@ -83,6 +90,10 @@ public abstract class Enemy extends GSprite { // can not instantiate an abstract
 	public double getCurrentHealth() {
 		return currentHealth;
 	}
+	
+	public int getCurrentValue(){
+		return currentValue;
+	}
 
 	public void setCurrentHealth(double currentHealth) {
 		this.currentHealth = currentHealth;
@@ -90,6 +101,7 @@ public abstract class Enemy extends GSprite { // can not instantiate an abstract
 		if(currentHealth <= 0)
 		{
 			//remove the  enemy and play explode
+			findGameBank().setCurrentValue(findGameBank().getCurrentValue() + cashValue);
 			Explode  expld = new Explode();
 			addSibling(expld);
 			snapAnchor(expld);
@@ -97,6 +109,10 @@ public abstract class Enemy extends GSprite { // can not instantiate an abstract
 			
 		}
 		
+	}
+
+	private Bank findGameBank() {
+		return getFirstAncestorOf(PhatKidsGameView.class).getGameBank();
 	}
 
 }

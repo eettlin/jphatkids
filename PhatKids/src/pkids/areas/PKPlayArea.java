@@ -58,13 +58,6 @@ public class PKPlayArea extends GContainer {
 			}
 		};
 
-//		addListener(tlAdd);
-//		DelayListener dl = new DelayListener(45) {
-//			@Override
-//			public void invoke(GObject target, Context context) {
-//				addListener(tlRemove);
-//			}
-//		};
 		addListener(pkEnemyTimer);
 
 	}
