@@ -4,13 +4,21 @@ import pkids.PhatKids;
 import jgame.ImageCache;
 
 public class EnemyFour extends Enemy {
+
+private double slownes = 4.0;
+
 public EnemyFour() {
 	// TODO Auto-generated constructor stub
 	super(ImageCache.getImage("enemies/enemy4.png"), 300);
 }
 	@Override
 	public double getSlowness() {
-		return 4;
+		return slownes;
 	}
+	
+	public  void setSlowness(int s) {
+		slownes = s;
+	}
+
 
 }

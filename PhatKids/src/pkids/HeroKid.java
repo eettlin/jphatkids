@@ -20,3 +20,5 @@ public class HeroKid extends GSprite{
 	}
 
 }
+
+

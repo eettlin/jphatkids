@@ -71,6 +71,7 @@ public abstract class Enemy extends GSprite { // can not instantiate an abstract
 	 * @return the slowness
 	 */
 	public abstract double getSlowness();
+	
 
 	@Override
 	public void preparePaint(Graphics2D g) {

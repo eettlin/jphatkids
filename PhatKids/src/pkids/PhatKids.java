@@ -33,15 +33,11 @@ public class PhatKids extends Game {
 		// add these two lines for each view
 		PhatKidsGameView pkgv = new PhatKidsGameView();
 		root.addView(Views.GAME, pkgv);
-		
-		
+
 
 	}	
 
-	/**	These are all of the views for this game
-	 * @author eettlin
-	 *
-	 */
+
 	public enum Views{
 		//		These are all of the views for this game
 		INSTRUCTIONS, MAIN_MENU, GAME, GAME_OVER, OTHER; 
