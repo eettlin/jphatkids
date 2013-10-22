@@ -3,6 +3,7 @@ package pkids.areas;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
+import pkids.HeroKid;
 import pkids.PhatKids;
 import pkids.enemies.Enemy;
 import pkids.enemies.EnemyFour;
@@ -23,10 +24,15 @@ public class PKPlayArea extends GContainer {
 		setSize(800, 600);
 		this.setBackgroundColor(Color.BLACK);
 
-		BufferedImage bg = ImageCache.forClass(PhatKids.class).get(
-				"areas/bg1.png");
+		//ImageCache.forClass(PhatKids.class).get("areas/bg1.png");
+		BufferedImage bg = ImageCache.getImage("areas/bg1.png");
 		GSprite gs = new GSprite(bg);
 		setBackgroundSprite(gs);
+		
+		HeroKid  hk = new HeroKid();
+		
+		addAtCenter(hk);
+		
 
 		final TimerListener pkEnemyTimer = new TimerListener(30) {
 

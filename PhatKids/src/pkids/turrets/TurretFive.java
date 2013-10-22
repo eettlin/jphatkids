@@ -1,20 +1,16 @@
 package pkids.turrets;
 
-import pkids.PhatKids;
+import jgame.ImageCache;
 import pkids.bullets.Bullet;
 import pkids.bullets.BulletFive;
-import jgame.Context;
-import jgame.GObject;
-import jgame.ImageCache;
-import jgame.listener.FrameListener;
 
 public class TurretFive extends Turret {
 
 	
 	
 	public TurretFive() {
-		super(ImageCache.forClass(PhatKids.class).get("turrets/tt5.png"));
-		
+		//super(ImageCache.forClass(PhatKids.class).get("turrets/tt5.png"));
+		super(ImageCache.getImage("turrets/tt5.png"));
 		
 	}
 
