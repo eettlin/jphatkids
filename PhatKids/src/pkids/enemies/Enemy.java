@@ -65,11 +65,6 @@ public abstract class Enemy extends GSprite { // can not instantiate an abstract
 
 	}
 
-	/**
-	 * Gets the slowness (the time spent between waypoints) of this enemy.
-	 * 
-	 * @return the slowness
-	 */
 	public abstract double getSlowness();
 	
 
