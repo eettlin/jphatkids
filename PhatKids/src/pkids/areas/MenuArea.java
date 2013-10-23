@@ -16,12 +16,7 @@ public class MenuArea extends GContainer {
 
 	//private Bank gameBank = new Bank();
 	
-	public MenuArea(int bankValue) {
-		
-		if(getFirstAncestorOf(PhatKidsGameView.class).enemyExists)
-		{
-		findGameBank().setCurrentValue(bankValue);
-		}
+	public MenuArea() {
 		this.setBackgroundColor(Color.RED);
 
 		BufferedImage bg = ImageCache.forClass(PhatKids.class).get(
@@ -35,9 +30,7 @@ public class MenuArea extends GContainer {
 		}
 
 	}
-
 	private Bank findGameBank() {
-		
 		return getFirstAncestorOf(PhatKidsGameView.class).getGameBank();
 	}
 
@@ -45,7 +38,7 @@ public class MenuArea extends GContainer {
 			"tiles/t", 1, 5, ".png"); // ***************
 
 	private void setTile(int i) {
-		Tile tile = new Tile(new IndexedTurretRecipe(i, findGameBank(), 100), tileImages.get(i)); // ***************
+		Tile tile = new Tile(new IndexedTurretRecipe(i, 100), tileImages.get(i)); // ***************
 		tile.setAnchorTopLeft();
 		tile.setScale(1.05);
 		addAtCenter(tile);

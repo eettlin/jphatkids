@@ -15,10 +15,10 @@ class IndexedTurretRecipe implements TurretRecipe {
 	private final Bank bank;
 	private int cost;
 
-	public IndexedTurretRecipe(int index, Bank b, int cost) {
+	public IndexedTurretRecipe(int index, int cost) {
 		super();
 		this.index = index;
-		bank = b;
+		bank = new Bank();
 		this.cost = cost;
 	}
 
