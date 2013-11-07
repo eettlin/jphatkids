@@ -21,6 +21,7 @@ public class PhatKidsGameView extends GContainer {
 	private PKPlayArea pa = new PKPlayArea();
 	private boolean settingTurret = false;
 	private Bank gameBank = new Bank();
+	private int startBankValue = 500;
 
 	public PhatKidsGameView() {
 		SoundManager.forClass(PhatKids.class).loopForever("crave.ogg");
@@ -44,6 +45,7 @@ public class PhatKidsGameView extends GContainer {
 		ia.setAnchorTopLeft();
 		ia.setLocation(500, 600);
 		add(ia);
+		ia.setDisplayValue(startBankValue);
 
 		// Create Tool area and locate on stage
 		ToolArea ta = new ToolArea();
