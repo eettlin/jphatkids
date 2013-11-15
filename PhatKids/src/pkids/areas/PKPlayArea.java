@@ -28,14 +28,10 @@ public class PKPlayArea extends GContainer {
 		BufferedImage bg = ImageCache.getImage("areas/bg1.png");
 		GSprite gs = new GSprite(bg);
 		setBackgroundSprite(gs);
-		
 		HeroKid  hk = new HeroKid();
-		
 		addAtCenter(hk);
-		
 
 		final TimerListener pkEnemyTimer = new TimerListener(30) {
-
 			@Override
 			public void invoke(GObject target, Context context) {
 				addRandomEnemy();
@@ -43,7 +39,6 @@ public class PKPlayArea extends GContainer {
 		};
 
 		TimerListener tlAdd = new TimerListener(180) {
-
 			@Override
 			public void invoke(GObject target, Context context) {
 				addListener(pkEnemyTimer);
@@ -51,15 +46,12 @@ public class PKPlayArea extends GContainer {
 		};
 
 		final TimerListener tlRemove = new TimerListener(180) {
-
 			@Override
 			public void invoke(GObject target, Context context) {
 				removeListener(pkEnemyTimer);
 			}
 		};
-
 		addListener(pkEnemyTimer);
-
 	}
 
 	private void addRandomEnemy() {

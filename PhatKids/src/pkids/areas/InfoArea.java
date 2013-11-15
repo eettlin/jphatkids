@@ -13,20 +13,9 @@ public class InfoArea extends GContainer {
 
 	public InfoArea() {
 		setSize(400, 100);
-
 		this.setBackgroundColor(Color.BLACK);
-
-		cashEquals_txt = new GMessage();
-		
-		cashEquals_txt.setX(50);
-		cashEquals_txt.setY(30);
-		cashEquals_txt.setColor(Color.getHSBColor(1f / 6f, 0.75f, 1f));
-		cashEquals_txt.setFont(new Font("Times New Roman", Font.BOLD, 48));
-		cashEquals_txt.setText("Cash =  $");
-		add(cashEquals_txt);
-		
 		displayBankValue = new GMessage();
-		displayBankValue.setX(250);
+		displayBankValue.setX(50);
 		displayBankValue.setY(30);
 		displayBankValue.setColor(Color.getHSBColor(1f / 6f, 0.75f, 1f));
 		displayBankValue.setFont(new Font("Times New Roman", Font.BOLD, 48));
@@ -34,7 +23,7 @@ public class InfoArea extends GContainer {
 	}
 
 	public void setDisplayValue(int newValue) {
-		displayBankValue.setText(Integer.toString(newValue));
+		displayBankValue.setText("Cash =  $" + Integer.toString(newValue));
 	}
 
 }
