@@ -40,7 +40,7 @@ public class PhatKidsGameView extends GContainer {
 		add(ma);
 
 		// Create Info area and locate on stage
-		InfoArea ia = new InfoArea();
+		InfoArea ia = new InfoArea(mBank);
 		ia.setAnchorTopLeft();
 		ia.setLocation(500, 600);
 		add(ia);
@@ -57,17 +57,19 @@ public class PhatKidsGameView extends GContainer {
 		if (settingTurret) {
 			return;
 		}
-		settingTurret = true; // This is only run when init turret
 		
-		
+        if (t.getTurretValue() > mBank.getBankValue()) {
+        	System.out.println("not enough bank for turret");
+            return;
+        }
+		mBank.changeBankValue(-t.getTurretValue());				// reset bank value
+		settingTurret = true; 							// This is only run when init turret
+
 		final RangeRing rr = new RangeRing(t.getFireRange());
 		this.pa.addAtCenter(rr);
 
 		this.pa.addAtCenter(t);
-		final MouseLocationController c = new MouseLocationController(); // create
-																			// mouse
-																			// location
-																			// controller
+		final MouseLocationController c = new MouseLocationController(); 
 		t.addController(c); // attach controller to turret t
 		rr.addController(c);
 
@@ -94,7 +96,7 @@ public class PhatKidsGameView extends GContainer {
 				318, 322, 323, 321, 318, 316, 318, 316, 314, 315, 313, 313 };
 		
 		final Polygon p = new Polygon(x, y, 119);
-		//From waypoint joint generator
+
 		final int[] xwater = new int[] { 746, 740, 732, 723, 712, 701, 689,
 				674, 656, 635, 613, 589, 566, 542, 517, 492, 468, 444, 420,
 				398, 377, 356, 335, 315, 297, 281, 266, 249, 233, 216, 199,
@@ -105,15 +107,7 @@ public class PhatKidsGameView extends GContainer {
 				540, 554, 570, 585, 601 };
 		final Polygon pwater = new Polygon(xwater, ywater, 38);
 
-		final LocalClickListener dropListener = new LocalClickListener() { // mouse
-																			// click
-																			// listener
-																			// hears
-																			// click
-																			// on
-																			// turret
-																			// (see
-																	// below)
+		final LocalClickListener dropListener = new LocalClickListener() { 
 			@Override
 			public void invoke(GObject target, Context context) {
 				//Check to see if close to road
@@ -140,7 +134,7 @@ public class PhatKidsGameView extends GContainer {
 				rr.removeController(c);
 				rr.removeSelf();
 				settingTurret = false;
-				// ((Turret) target).setPlaced(true);
+				
 				t.setPlaced(true); // because t is set to final otherwise above
 			}
 		};

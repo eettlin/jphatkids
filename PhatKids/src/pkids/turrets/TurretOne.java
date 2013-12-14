@@ -41,4 +41,9 @@ public class TurretOne extends Turret {
 		return new BulletOne();
 	}
 
+	@Override
+	public int getTurretValue() {
+		return 100;
+	}
+
 }

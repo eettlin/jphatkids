@@ -39,5 +39,10 @@ public class TurretFour extends Turret {
 		// TODO Auto-generated method stub
 		return new BulletFour();
 	}
+	
+	@Override
+	public int getTurretValue() {
+		return 400;
+	}
 
 }

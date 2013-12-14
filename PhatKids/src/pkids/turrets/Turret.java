@@ -98,6 +98,8 @@ public abstract class Turret extends GSprite {
 	public abstract double getBulletSpeed();
 
 	public abstract Bullet createBullet();
+	
+	public abstract int getTurretValue();
 
 	public void fireBullet() {
 		// create an instance of BulletOne

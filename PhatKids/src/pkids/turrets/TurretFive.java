@@ -38,5 +38,10 @@ public class TurretFive extends Turret {
 	public Bullet createBullet() {
 		return new BulletFive();
 	}
+	
+	@Override
+	public int getTurretValue() {
+		return 500;
+	}
 
 }
