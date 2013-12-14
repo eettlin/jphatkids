@@ -7,10 +7,7 @@ import jgame.ImageCache;
 
 public class TurretTwo extends Turret {
 
-	@Override
-	public int getFireCoolDown() {
-		return 50;
-	}
+	
 
 	public TurretTwo() {
 		super(ImageCache.getImage("turrets/tt2.png"));
@@ -22,8 +19,13 @@ public class TurretTwo extends Turret {
 	}
 
 	@Override
+	public int getFireCoolDown() {
+		return 50;
+	}
+	
+	@Override
 	public double getFireRange() {
-		return 450;
+		return 150;
 	}
 
 	@Override

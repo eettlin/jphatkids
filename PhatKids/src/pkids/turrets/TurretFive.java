@@ -9,9 +9,7 @@ public class TurretFive extends Turret {
 	
 	
 	public TurretFive() {
-		//super(ImageCache.forClass(PhatKids.class).get("turrets/tt5.png"));
-		super(ImageCache.getImage("turrets/tt5.png"));
-		
+		super(ImageCache.getImage("turrets/tt5.png"));		
 	}
 
 	@Override

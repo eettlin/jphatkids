@@ -7,10 +7,7 @@ import jgame.ImageCache;
 
 public class TurretFour extends Turret {
 
-	@Override
-	public int getFireCoolDown() {
-		return 200;
-	}
+	
 
 	public TurretFour() {
 		super(ImageCache.getImage("turrets/tt4.png"));
@@ -22,6 +19,11 @@ public class TurretFour extends Turret {
 		return 150;
 	}
 
+	@Override
+	public int getFireCoolDown() {
+		return 200;
+	}
+	
 	@Override
 	public double getBulletSpeed() {
 		// TODO Auto-generated method stub

@@ -52,21 +52,22 @@ public class PhatKidsGameView extends GContainer {
 		add(ta);
 
 	}
-
+	//called from Enemy when enemy dies.  Adds value to bank
 	public void changeLocalBankValue(int lbv)
 	{
 		mBank.changeBankValue(lbv);
 	}
 	
 	public void initializeTurret(final Turret t) {
+		//will only set one turret at a time
 		if (settingTurret) {
 			return;
 		}
-		
+		//Check for sufficient funds for turret
         if (t.getTurretValue() > mBank.getBankValue()) {
-        	System.out.println("not enough bank for turret");
             return;
         }
+        //only if sufficient funds and not setting turret
 		mBank.changeBankValue(-t.getTurretValue());				// reset bank value
 		settingTurret = true; 							// This is only run when init turret
 
@@ -128,9 +129,10 @@ public class PhatKidsGameView extends GContainer {
 						return;
 					}
 				}
+				
 				for (GObject child : pa.getObjects()) {
-					if (child != t && child instanceof Turret
-							&& child.hitTest(t)) {
+					if (child != t && child instanceof Turret && child.hitTest(t)) 
+					{
 						return;
 					}
 				}
@@ -139,7 +141,6 @@ public class PhatKidsGameView extends GContainer {
 				rr.removeController(c);
 				rr.removeSelf();
 				settingTurret = false;
-				
 				t.setPlaced(true); // because t is set to final otherwise above
 			}
 		};

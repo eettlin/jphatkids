@@ -6,10 +6,15 @@ import pkids.bullets.BulletThree;
 import jgame.ImageCache;
 
 public class TurretThree extends Turret {
-
+	
+	public TurretThree() {
+		super(ImageCache.getImage("turrets/tt3.png"));;
+	}
+	
+	
 	@Override
 	public int getFireCoolDown() {
-		return 300;
+		return 30;
 	}
 
 	@Override
@@ -18,14 +23,12 @@ public class TurretThree extends Turret {
 		return 250;
 	}
 
-	public TurretThree() {
-		super(ImageCache.getImage("turrets/tt3.png"));;
-	}
+	
 
 	@Override
 	public int getFireDelay() {
 		// TODO Auto-generated method stub
-		return 100  ;
+		return 30  ;
 	}
 
 	@Override
