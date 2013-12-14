@@ -25,7 +25,6 @@ public class Bullet extends GSprite {
 		addListener(new BoundaryRemovalListener());
 		HitTestListener htl = new HitTestListener(Enemy.class) {
 			// target is the bullet and context is the crystal ball
-			// interface
 			@Override
 			public void invoke(GObject target, Context context) {
 				// import java.util.list (not java.awt)
@@ -35,7 +34,7 @@ public class Bullet extends GSprite {
 					enemy.setCurrentHealth(enemy.getCurrentHealth()-bd);
 					
 				}
-				target.removeSelf();
+				target.removeSelf();//remove the bullet if hit enemy
 			}
 		};
 		addListener(htl);

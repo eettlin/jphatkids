@@ -9,6 +9,8 @@ import jgame.Context;
 import jgame.GContainer;
 import jgame.GMessage;
 import jgame.GObject;
+import jgame.GSprite;
+import jgame.ImageCache;
 import jgame.listener.FrameListener;
 
 public class InfoArea extends GContainer {
@@ -18,9 +20,15 @@ public class InfoArea extends GContainer {
 	public InfoArea(final Bank bv) {
 
 		setSize(400, 100);
-		this.setBackgroundColor(Color.gray);
+		this.setBackgroundColor(Color.black);
 		
-		moneyBankValue.setLocation(50, 30);
+		
+		GSprite bgs = ImageCache.getSprite("areas/infoarea.png");
+		bgs.setAnchorCenter();
+		addAtCenter(bgs);
+		
+		
+		moneyBankValue.setLocation(50, 40);
         this.add(moneyBankValue);
 
         moneyBankValue.setColor(Color.YELLOW);
@@ -39,7 +47,7 @@ public class InfoArea extends GContainer {
 	
 	public void setMoneyBankValue(int bv)
 	{
-		moneyBankValue.setText("Bank Value = " + Integer.toString(bv));
+		moneyBankValue.setText("Bank Value = $" + Integer.toString(bv));
 	}
 	
 	

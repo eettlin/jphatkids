@@ -53,6 +53,11 @@ public class PhatKidsGameView extends GContainer {
 
 	}
 
+	public void changeLocalBankValue(int lbv)
+	{
+		mBank.changeBankValue(lbv);
+	}
+	
 	public void initializeTurret(final Turret t) {
 		if (settingTurret) {
 			return;

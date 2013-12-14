@@ -10,18 +10,22 @@ import jgame.controller.PolygonController;
 import jgame.listener.BoundaryRemovalListener;
 import pkids.HealthBar;
 import pkids.HeroKid;
+import pkids.PhatKidsGameView;
 
 public abstract class Enemy extends GSprite { // can not instantiate an abstract
 												// class
 	private double maxHealth;
 	private double currentHealth;
+	private int moneyValue;
 	private HealthBar hb = new HealthBar();
+	
 
-	public Enemy(Image image, double maxHlth) {
+	public Enemy(Image image, double maxHlth, int moneyValue) {
 		super(image);
-		maxHealth = maxHlth;
-		currentHealth = maxHealth;
-
+		this.maxHealth = maxHlth;
+		this.currentHealth = maxHealth;
+		this.moneyValue = moneyValue;
+		
 		hb.setWidth(getWidth());
 		addAtCenter(hb);
 		hb.setY(this.getHeight() - hb.getHeight() / 2);
@@ -66,8 +70,6 @@ public abstract class Enemy extends GSprite { // can not instantiate an abstract
 	}
 
 	public abstract double getSlowness();
-	
-
 	@Override
 	public void preparePaint(Graphics2D g) {
 		super.preparePaint(g);
@@ -85,6 +87,7 @@ public abstract class Enemy extends GSprite { // can not instantiate an abstract
 		if(currentHealth <= 0)
 		{
 			//remove the  enemy and play explode
+			getFirstAncestorOf(PhatKidsGameView.class).changeLocalBankValue(moneyValue);
 			Explode  expld = new Explode();
 			addSibling(expld);
 			snapAnchor(expld);

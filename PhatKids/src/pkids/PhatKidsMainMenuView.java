@@ -24,8 +24,14 @@ public class PhatKidsMainMenuView extends GContainer {
 
 	public PhatKidsMainMenuView() {
 		setSize(900, 700);
-		this.setBackgroundColor(Color.GRAY);
-		this.setBackgroundSprite(ImageCache.getSprite("areas/MenuArea.png"));
+		this.setBackgroundColor(Color.BLACK);
+		
+		
+		//this.setBackgroundSprite(ImageCache.getSprite("areas/MenuArea.png"));
+		GSprite bgs = ImageCache.getSprite("areas/MenuArea.png");
+		bgs.setAnchorCenter();
+		addAtCenter(bgs);
+		
 		//Instead of new GButton();
 		GButton mbPlay = this.createButton(0, "Play");
 		mbPlay.setLocation(-100, 200);
