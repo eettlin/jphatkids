@@ -26,8 +26,8 @@ public class PhatKids extends Game {
 		
 		PhatKidsMainMenuView pkmv = new PhatKidsMainMenuView();
 		root.addView(Views.MAIN_MENU, pkmv);
-		/*
-		PhatKidsInstructionsView pkiv = new PhatKidsInstructionsView();
+		
+		/*PhatKidsInstructionsView pkiv = new PhatKidsInstructionsView();
 		root.addView(Views.INSTRUCTIONS, pkiv);*/
 		
 		// add these two lines for each view

@@ -20,6 +20,7 @@ public class PhatKidsGameView extends GContainer {
 
 	private PKPlayArea pa = new PKPlayArea();
 	private boolean settingTurret = false;
+	private Bank mBank = new Bank(500);
 
 	public PhatKidsGameView() {
 		SoundManager.forClass(PhatKids.class).loopForever("crave.ogg");
@@ -57,6 +58,8 @@ public class PhatKidsGameView extends GContainer {
 			return;
 		}
 		settingTurret = true; // This is only run when init turret
+		
+		
 		final RangeRing rr = new RangeRing(t.getFireRange());
 		this.pa.addAtCenter(rr);
 
