@@ -12,8 +12,8 @@ public class InfoButton extends GButton {
 		this.image = image;
 		GSprite gs = new GSprite(image);
 		gs.setAnchorTopLeft();
-		gs.setScale(1.75);
-		addAt(gs, 10, 10);
+		gs.setScale(.75);
+		addAt(gs, 9, 5);
 		
 	}
 }

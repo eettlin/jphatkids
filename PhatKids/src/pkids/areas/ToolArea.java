@@ -24,19 +24,31 @@ public class ToolArea extends GContainer {
 		addAtCenter(bgs);
 
 		//Get veggie icons to place on button tiles
-		List<Image> bulletImages = ImageCache.getSequentialImages("bullets/b",
+		List<Image> bulletImages = ImageCache.getSequentialImages("bullets/ib",
 				1, 5, ".png");
-		
+		List<Image> enemyImages = ImageCache.getSequentialImages("enemies/e",
+				1, 4, ".png");
 		//create two-state button
 		GSprite none_img = new GSprite(ImageCache.getImage("buttons/infonone.png"));
 		GSprite hover_img = new GSprite(ImageCache.getImage("buttons/infohover.png"));
 
 		for (int i = 0; i < 9; i++) {
-			InfoButton infoButton = new InfoButton(bulletImages.get(i%5));
-			infoButton.setStateSprite(ButtonState.NONE, none_img);
-			infoButton.setStateSprite(ButtonState.HOVERED, hover_img);
-			infoButton.setScale(.75);
-			addAt(infoButton, 25, 65 * i + 9);
+			if(i<5)
+			{
+				InfoButton infoButton = new InfoButton(bulletImages.get(i));
+				infoButton.setStateSprite(ButtonState.NONE, none_img);
+				infoButton.setStateSprite(ButtonState.HOVERED, hover_img);
+				infoButton.setScale(.75);
+				addAt(infoButton, 25, 65 * i + 9);
+			} else {
+
+				InfoButton infoButton = new InfoButton(enemyImages.get(i-5));
+				infoButton.setStateSprite(ButtonState.NONE, none_img);
+				infoButton.setStateSprite(ButtonState.HOVERED, hover_img);
+				infoButton.setScale(.75);
+				addAt(infoButton, 25, 65 * i + 9);
+			}
+			
 		}
 
 		/*List<Image> bulletImages = ImageCache.getSequentialImages("bullets/b",
