@@ -68,7 +68,7 @@ public abstract class Enemy extends GSprite { // can not instantiate an abstract
 			
 			@Override
 			public void invoke(GObject target, Context context) {
-				if(target.distanceTo(endPoint.getLocation()) < 80)
+				if(target.distanceTo(endPoint.getLocation()) < 70)
 				{
 					
 					getFirstAncestorOf(PhatKidsGameView.class).changeLocalLifeValue(-1);
