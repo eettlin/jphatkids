@@ -14,7 +14,7 @@ public class MenuArea extends GContainer {
 
 	public MenuArea() {
 		setSize(500, 100);
-		this.setBackgroundColor(Color.RED);
+		this.setBackgroundColor(Color.BLACK);
 
 		BufferedImage bg = ImageCache.forClass(PhatKids.class).get(
 				"areas/menubg.png");
