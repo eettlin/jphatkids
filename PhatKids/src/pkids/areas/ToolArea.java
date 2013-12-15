@@ -28,18 +28,14 @@ public class ToolArea extends GContainer {
 				1, 5, ".png");
 		
 		//create two-state button
-		GSprite none_img = new GSprite(ImageCache.forClass(PhatKids.class)
-				.get("buttons/infonone.png"));
-		GSprite hover_img = new GSprite(ImageCache.forClass(PhatKids.class)
-				.get("buttons/infohover.png"));
+		GSprite none_img = new GSprite(ImageCache.getImage("buttons/infonone.png"));
+		GSprite hover_img = new GSprite(ImageCache.getImage("buttons/infohover.png"));
 
 		for (int i = 0; i < 9; i++) {
-			GButton infoButton = new GButton();
+			InfoButton infoButton = new InfoButton(bulletImages.get(i%5));
 			infoButton.setStateSprite(ButtonState.NONE, none_img);
 			infoButton.setStateSprite(ButtonState.HOVERED, hover_img);
-
-			infoButton.setScale(0.75);
-			
+			infoButton.setScale(.75);
 			addAt(infoButton, 25, 65 * i + 9);
 		}
 
