@@ -21,6 +21,7 @@ public class PhatKidsGameView extends GContainer {
 	private PKPlayArea pa = new PKPlayArea();
 	private boolean settingTurret = false;
 	private Bank mBank = new Bank(500);
+	private Bank lBank = new Bank(100);
 
 	public PhatKidsGameView() {
 		SoundManager.forClass(PhatKids.class).loopForever("crave.ogg");
@@ -40,7 +41,7 @@ public class PhatKidsGameView extends GContainer {
 		add(ma);
 
 		// Create Info area and locate on stage
-		InfoArea ia = new InfoArea(mBank);
+		InfoArea ia = new InfoArea(mBank, lBank);
 		ia.setAnchorTopLeft();
 		ia.setLocation(500, 600);
 		add(ia);
@@ -52,6 +53,12 @@ public class PhatKidsGameView extends GContainer {
 		add(ta);
 
 	}
+	public void changeLocalLifeValue(int lifePoint)
+	{
+		System.out.println("  --> " + lifePoint );
+		lBank.changeBankValue(lifePoint);
+	}
+	
 	//called from Enemy when enemy dies.  Adds value to bank
 	public void changeLocalBankValue(int lbv)
 	{

@@ -13,7 +13,7 @@ public class EnemyOne extends Enemy {
 
 	@Override
 	public double getSlowness() {
-		return 5;
+		return 2;
 	}
 
 }

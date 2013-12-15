@@ -31,12 +31,10 @@ public abstract class Turret extends GSprite {
 
 			@Override
 			public void invoke(GObject target, Context context) {
-
 				// if not placed exit the invoke function
 				if (!placed) {
 					return;
 				}
-
 				// set rotation of turret to point toward nearest enemy
 				// this is pointing to a list that jgame has created w/o alloct
 				List<Enemy> enemies = context.getInstancesOfClass(Enemy.class);

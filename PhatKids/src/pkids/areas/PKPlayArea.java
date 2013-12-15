@@ -37,11 +37,11 @@ public class PKPlayArea extends GContainer {
 			@Override
 			public void invoke(GObject target, Context context) {
 				enemyBurstDelay--;
-				if (enemyBurstDelay <= 0 && enemyBurstNum <= 4) {
+				if (enemyBurstDelay <= 0 && enemyBurstNum < 5) {
 					addRandomEnemy();
 					enemyBurstNum++;
 					if (enemyBurstNum > 3) {
-						enemyBurstDelay = 12;
+						enemyBurstDelay = 10;
 						enemyBurstNum = 0;
 					}
 				}

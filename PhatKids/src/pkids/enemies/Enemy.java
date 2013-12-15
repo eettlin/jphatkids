@@ -2,12 +2,15 @@ package pkids.enemies;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.Polygon;
 
+import jgame.Context;
 import jgame.GObject;
 import jgame.GSprite;
 import jgame.controller.PolygonController;
 import jgame.listener.BoundaryRemovalListener;
+import jgame.listener.FrameListener;
 import pkids.HealthBar;
 import pkids.HeroKid;
 import pkids.PhatKidsGameView;
@@ -30,7 +33,7 @@ public abstract class Enemy extends GSprite { // can not instantiate an abstract
 		addAtCenter(hb);
 		hb.setY(this.getHeight() - hb.getHeight() / 2);
 		hb.setHealthPercentage(1);
-		
+		final Point endPoint = new Point(0,0);
 
 		setScale(0.75);
 		int[] x = new int[] { 657, 657, 656, 654, 650, 640, 618, 593, 568, 545,
@@ -56,9 +59,26 @@ public abstract class Enemy extends GSprite { // can not instantiate an abstract
 		
 		Polygon p = new Polygon(x, y, 119);
 		PolygonController pc = new PolygonController(p);
+		endPoint.setLocation(x[118], y[118]);
 
 		pc.goToStart(this);
 		pc.setRotateToFollow(false);
+		
+		FrameListener fl = new FrameListener() {
+			
+			@Override
+			public void invoke(GObject target, Context context) {
+				if(target.distanceTo(endPoint.getLocation()) < 80)
+				{
+					
+					getFirstAncestorOf(PhatKidsGameView.class).changeLocalLifeValue(-1);
+				}
+				System.out.println("dist = "   + target.distanceTo(endPoint.getLocation()));
+			}
+		};
+		this.addListener(fl);
+		
+		
 
 		double slowness = getSlowness();
 		pc.setMaxSpeed(slowness * 3);

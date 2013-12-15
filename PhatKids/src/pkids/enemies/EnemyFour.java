@@ -5,14 +5,14 @@ import jgame.ImageCache;
 
 public class EnemyFour extends Enemy {
 
-private double slownes = 4.0;
+private double slownes = 5;
 
 public EnemyFour() {
 	super(ImageCache.getImage("enemies/enemy4.png"), 400, 120);
 }
 	@Override
 	public double getSlowness() {
-		return slownes;
+		return 2;
 	}
 	
 	public  void setSlowness(int s) {
