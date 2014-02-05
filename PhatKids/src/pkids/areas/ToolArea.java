@@ -45,7 +45,7 @@ public class ToolArea extends GContainer {
 				infoButton.setStateSprite(ButtonState.HOVERED, hover_img);
 				infoButton.setScale(.75);
 				addAt(infoButton, 25, 65 * i + 9);
-				infoButtons.push(infoButton);
+				//infoButtons.push(infoButton);
 			} else {
 
 				InfoButton infoButton = new InfoButton(enemyImages.get(i-5));
